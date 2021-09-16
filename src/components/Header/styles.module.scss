@@ -1,0 +1,30 @@
+.headerContext{
+  max-width: 1366px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 2rem 0;
+
+  img {
+    width: 64px;
+  }
+
+  nav {
+    ul {
+      display: flex;
+      list-style: none;
+      li {
+        font-size: 1.25rem;
+        font-weight: 200;
+        & + li {
+          margin-left: 36px;
+        }
+
+        &:hover {
+          filter: brightness(0.6);
+        }
+      }
+    }
+  }
+}

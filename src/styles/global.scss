@@ -26,6 +26,7 @@
 body {
   background: var(--blue);
   color: var(--white);
+  -webkit-font-smoothing: antialiased;
 }
 
 body, input, textarea, select, button {
