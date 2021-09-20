@@ -1,13 +1,21 @@
-.headerContext{
+.HeaderContainer{
+  position: fixed;
+  z-index: 2;
+
   max-width: 1366px;
+  width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 2rem 0;
+  margin: 0 auto; 
+  left: 0;
+  right: 0;
+  padding: 2rem 3rem;
 
   img {
-    width: 64px;
+    width: 48px;
   }
 
   nav {
@@ -22,9 +30,62 @@
         }
 
         &:hover {
-          filter: brightness(0.6);
+          color: var(--secondary);
         }
       }
     }
+    input, label {
+      display: none;
+    }
+  }
+
+  .Checkbtn {
+    font-size: 1.25rem;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .HeaderContainer{
+    background: var(--main);
+    img {
+      width: 32px;
+    }
+
+    nav {
+      ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: var(--main);
+        filter: opacity(90%);
+        top: 62px;
+        left: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        transition: all .5s;
+        li {
+          font-weight: 400;
+          & + li {
+            margin-left: 0;
+            margin-top: 2rem;
+          }
+        }
+      } 
+      label {
+        display: block;
+      }
+      
+      input:checked ~ ul{
+        left: -100%;
+      }
+
+    }
+  }
+
+  .Checkbtn {
+    display: block;
   }
 }

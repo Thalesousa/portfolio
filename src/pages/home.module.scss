@@ -1,54 +1,63 @@
 .Container {
-  max-width: 1366px;
+  width: 1366px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 40px;
-
+  padding: 0 3rem;
 }
+
 .Hero {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  .HeroContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
 
-  img {
-    width: 480px;
-  }
+    img {
+      width: 480px;
+    }
 
-  article {
-    span {
-      font-size: 1.5rem;
-      display:block;
-    }
-  
-    h1 {
-      font-size: 5rem;
-    }
-  
-    button {
-      display: block;
-      margin-top: 16px;
-      width: 200px;
-      height: 48px;
-      color: var(--black);
-      padding: 0.8rem;
-      font-weight: bold;
-      line-height: 100%;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: 2px solid var(--white);
-      background: var(--white);
-  
-      &:hover {
-        background: transparent;
-        color: var(--white);
+    article {
+      span {
+        font-size: 1.5rem;
+        display:block;
+      }
+    
+      h1 {
+        font-size: 5rem;
+        padding: 0;
+      }
+    
+      button {
+        display: block;
+        margin-top: 16px;
+        width: 200px;
+        height: 48px;
+        color: var(--black);
+        padding: 0.8rem;
+        font-weight: bold;
+        line-height: 100%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid var(--secondary);
+        background: var(--gradient);
+    
+        &:hover {
+          background: transparent;
+          color: var(--secondary);
+        }
       }
     }
   }
 }
 
-.Info{
+.SocialLinks{
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  margin-bottom: 7rem;
 
   & > svg {
     font-size: 30px;
@@ -67,6 +76,9 @@
   span {
     a {
       font-size: 1rem;
+      &:hover {
+        color: var(--secondary);
+      }
     }
   }
 
@@ -78,6 +90,10 @@
       display: inline-block;
       font-size: 32px;
 
+      &:hover {
+        color: var(--secondary);
+      }
+
       & + li {
         margin-left: 18px;
       }
@@ -86,20 +102,21 @@
 }
 
 .About {
-  margin: 7rem 0;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-
-
+  margin-bottom: 7rem;
 
 
   blockquote {
+    margin-top: 4rem;
     text-align: end;
     p {
       font-size: 1.5rem;
+    }
+
+    cite {
+      color: var(--secondary);
     }
   }
 }
@@ -108,13 +125,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 4rem;
 
   .Resume {
     max-width: 700px;
 
     h2 {
       font-size: 4rem;
+      background: var(--web-gradient);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     p {
@@ -127,42 +146,39 @@
   }
 }
 
-.Skills {
-  h2 {
-    font-size: 3rem;
-    text-align: center;
+.PreviewPortfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 7rem;
+  
+  .ContainerPreviewPortfolio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
   }
 
-  ul {
-    margin: 2rem 0 7rem;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  a {
+    display: block;
+    text-decoration: underline;
+    color: var(--secondary);
+    font-size: 1.5rem;
+    margin-top: 2rem;
 
-    li {
-      font-size: 3rem;
-
-      & + li {
-        margin-left: 4rem;
-      }
+    &:hover {
+      filter: brightness(70%);
     }
   }
-}
+} 
 
 .Contact {
-  height: 100vh;
-
-  margin-bottom: 4rem;
-  h1 {
-    font-size: 3rem;
-    text-align: center;
-  }
-
+  margin-bottom: 7rem;
   form {
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
 
     > div {
       display: flex;
@@ -181,6 +197,10 @@
       &::placeholder {
         color: #9b9b9b;
       }
+        
+      &:focus {
+        outline-color: var(--secondary);
+      }
     }
 
     textarea {
@@ -191,10 +211,15 @@
       margin-left: auto;
       width: 240px;
       height: 40px;
-      border: none;
-      background: var(--white);
+      border: 1px solid var(--secondary);
+      background: var(--gradient);
       color: var(--black);
       font-weight: bold;
+
+      &:hover {
+        background: transparent;
+        color: var(--secondary);
+      }
     }
   }
 }
@@ -209,7 +234,7 @@
   justify-content: center;
   align-items: center;
 
-  h1 {
+  span {
     font-size: 3rem;
   }
 
@@ -232,9 +257,122 @@
         margin-left: 1rem;
 
         &:hover {
-          filter: brightness(70%);
+          color: var(--secondary);
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .Hero {
+    .HeroContent {
+      img {
+        width: 380px;
+      }
+
+      article {
+        h1 {
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+  .Presentation {
+    .Resume {
+      max-width: 600px;
+  
+      h2 {
+        font-size: 3rem;
+        background: var(--web-gradient);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+  
+      p {
+        font-size: 1.25rem;
+      }
+    }
+
+    img {
+      width: 300px;
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .Hero{
+    .HeroContent {
+      justify-content: center;
+      padding: 4rem 0;
+
+      img {
+        display: none;
+      }
+
+      article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  } 
+  .About {
+    blockquote {
+      p {
+        font-size: 1.25rem;
+      }
+    }
+  }
+  .Presentation {
+    flex-direction: column;
+    .Resume {
+      max-width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    img {
+      width: 240px;
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .Contact {
+    form > div {
+      flex-direction: column;
+      justify-content: center;
+      gap: 0;
+    }
+  }
+  
+  .SocialLinks > svg {
+    display: none;
+  }
+
+  .Footer span{
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .SocialLinks {
+    flex-direction: column;
+    justify-content: center;
+    > span {
+      display: none;
+    }
+  }
+
+  .Contact {
+    form button {
+      width: 100%;
+    }
+  }
+
+  .Footer {
+    span {
+      font-size: 1.25rem;
     }
   }
 }

@@ -1,113 +1,135 @@
 import { GetStaticProps } from "next"
 import Link from 'next/link'
 import Head from 'next/head';
-import { Header } from '../components/Header'
+
 import styles from './home.module.scss';
-import { BsChevronCompactDown} from 'react-icons/bs'
-import { FiFigma } from 'react-icons/fi'
-import { 
-  AiFillLinkedin, 
-  AiFillGithub, 
-  AiFillCodepenCircle,
-  AiFillHtml5,
-} from 'react-icons/ai'
 
-import { 
-  FaCss3Alt, 
-  FaGitAlt, 
-  FaSass, 
-  FaBootstrap 
-} from 'react-icons/fa'
+import { Header } from '../components/Header'
+import { Skills } from "../components/Skills";
 
-import { 
-  SiJavascript, 
-  SiTypescript, 
-  SiReact, 
-  SiNextDotJs 
-} from 'react-icons/si'
+import { BsChevronCompactDown } from 'react-icons/bs'
+import { AiFillLinkedin, AiFillGithub, AiFillCodepenCircle } from 'react-icons/ai'
 
 type HomeProps = {
   year: string;
 }
 
-export default function Home({year}: HomeProps) {
+export default function Home({ year }: HomeProps) {
+
   return (
     <>
-      <div className={styles.Container}>
-        <Head>
-          <title>Thalesousa</title>
-        </Head>
-        <Header />
+      <Head>
+        <title>Thalesousa</title>
+      </Head>
+      <Header />
 
-        <section className={styles.Hero}>
-          <article>
-            <span>Olá, eu sou</span>
-            <h1>Thales Sousa</h1>
-            <span>Front End Developer</span>
-            <Link href="https://drive.google.com/u/0/uc?id=13icu1MTJeRc1TPvkpUEglN6GRF63aCVe&export=download">
-              <button> Download CV </button>
-            </Link>
-          </article>
-          <img src="./illustration.svg" alt="ilustração" />
+      <main className={styles.Container}>
+
+        <section className={styles.Hero} id="home">
+          <div className={styles.HeroContent}>
+            <article>
+              <span>Olá, eu sou</span>
+              <h1>Thales Sousa</h1>
+              <span>Front End Developer</span>
+              <Link href="https://drive.google.com/u/0/uc?id=13icu1MTJeRc1TPvkpUEglN6GRF63aCVe&export=download">
+                <button> Download CV </button>
+              </Link>
+            </article>
+            <img src="./illustration.svg" alt="ilustração" />
+          </div>
+          <div className={styles.SocialLinks}>
+            <ul>
+              <li><a href="https://www.linkedin.com/in/thalesousa/"><AiFillLinkedin /></a></li>
+              <li><a href="https://github.com/Thalesousa"><AiFillGithub /></a></li>
+              <li><a href="https://codepen.io/thalesousa"><AiFillCodepenCircle /></a></li>
+            </ul>
+
+            <BsChevronCompactDown />
+
+            <span>
+              <a href="#">thalestjsb@gmail.com</a>
+            </span>
+          </div>
+
         </section>
-        
-        <div className={styles.Info}>
-          <ul>
-            <li><a href="https://www.linkedin.com/in/thalesousa/"><AiFillLinkedin /></a></li>
-            <li><a href="https://github.com/Thalesousa"><AiFillGithub /></a></li>
-            <li><a href="https://codepen.io/thalesousa"><AiFillCodepenCircle /></a></li>
-          </ul>
 
-          <BsChevronCompactDown />
-
-          <span>
-            <a href="#">thalestjsb@gmail.com</a>
-          </span>
-        </div>
-        
-        <section className={styles.About}>
+        <section className={styles.About} id="about">
           <div className={styles.Presentation}>
             <div className={styles.Resume}>
               <h2>Olá</h2>
               <p>
-                Sou um desenvolvedor front-end dedicado com um olhar atento para 
-                detalhes, e uma determinação para oferecer a mais alta qualidade. 
-                Tenho muito orgulho do meu trabalho, e sempre tento melhorar a mim 
+                Sou um desenvolvedor front-end dedicado com um olhar atento para
+                detalhes, e uma determinação para oferecer a mais alta qualidade.
+                Tenho muito orgulho do meu trabalho, e sempre tento melhorar a mim
                 mesmo a cada projeto em que trabalho.</p>
             </div>
-            <img src="./thalesousa.jpg" alt="Imagem de Thales Sousa" />
+            <img src="./thalesousa.png" alt="Imagem de Thales Sousa" />
           </div>
           <blockquote>
             <p>“Design não é apenas sobre como tal coisa se parece ou se sente. Design é como isso funciona.”</p>
             <cite>Steve Jobs</cite>
           </blockquote>
-          
+
 
 
         </section>
 
-        <section className={styles.Skills}>
-          <h2>Minhas Skills</h2>
-            <ul>
-              <li><AiFillHtml5 /></li>
-              <li><FaCss3Alt /></li>
-              <li><SiJavascript /></li>
-              <li><FaBootstrap /></li>
-              <li><SiTypescript /></li>
-              <li><SiReact /></li>
-              <li><SiNextDotJs /></li>
-              <li><FaSass /></li>
-              <li><img src="./styled-components.png" width="20" /></li>
-              <li><FaGitAlt /></li>
-              <li><FiFigma /></li>
-            </ul>
+        <Skills />
+
+        <section className={styles.PreviewPortfolio} id="projects">
+          <h1>Projetos</h1>
+          <div className={styles.ContainerPreviewPortfolio}>
+            <div className="box">
+              <div className="imgBx">
+                <img src="https://images.pexels.com/photos/7213434/pexels-photo-7213434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="520" />
+              </div>
+              <div className="content">
+                <h3>Projeto x</h3>
+                <span>28/05/2021</span>
+              </div>
+            </div>
+
+            <div className="box">
+              <div className="imgBx">
+                <img src="https://images.pexels.com/photos/7213434/pexels-photo-7213434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="520" />
+              </div>
+              <div className="content">
+                <h3>Projeto x</h3>
+                <span>28/05/2021</span>
+              </div>
+            </div>
+
+            <div className="box">
+              <div className="imgBx">
+                <img src="https://images.pexels.com/photos/7213434/pexels-photo-7213434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="520" />
+              </div>
+              <div className="content">
+                <h3>Projeto x</h3>
+                <span>28/05/2021</span>
+              </div>
+            </div>
+
+            <div className="box">
+              <div className="imgBx">
+                <img src="https://images.pexels.com/photos/7213434/pexels-photo-7213434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="520" />
+              </div>
+              <div className="content">
+                <h3>Projeto x</h3>
+                <span>28/05/2021</span>
+              </div>
+            </div>
+
+          </div>
+
+          <a href="#">Veja mais</a>
+
         </section>
-        
-        <section className={styles.Contact}>
+
+        <section className={styles.Contact} id="contact">
           <h1>Fale Comigo</h1>
           <form action="">
             <div>
-              <input type="text" placeholder="Nome" />
+              <input type="text" placeholder="Nome"></input>
               <input type="email" placeholder="Email" />
             </div>
 
@@ -121,11 +143,11 @@ export default function Home({year}: HomeProps) {
           </form>
         </section>
 
-      </div>
+      </main>
 
       <footer className={styles.Footer}>
 
-      <h1>Vamos trabalhar juntos. 😃</h1>
+        <span>Vamos trabalhar juntos. <span>😃</span></span>
         <ul>
           <li><span>&#169;{year} Thales Sousa</span></li>
           <li><a href="https://www.linkedin.com/in/thalesousa/"><AiFillLinkedin /></a></li>
@@ -133,13 +155,12 @@ export default function Home({year}: HomeProps) {
           <li><a href="https://codepen.io/thalesousa"><AiFillCodepenCircle /></a></li>
         </ul>
       </footer>
-
     </>
-    
+
   )
 }
 
-export const getStaticProps: GetStaticProps = async () =>{
+export const getStaticProps: GetStaticProps = async () => {
   const year = new Date().getFullYear();
   return {
     props: {
