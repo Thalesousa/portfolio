@@ -9,6 +9,7 @@ import { Skills } from "../components/Skills";
 
 import { BsChevronCompactDown } from 'react-icons/bs'
 import { AiFillLinkedin, AiFillGithub, AiFillCodepenCircle } from 'react-icons/ai'
+import { PreviewProject } from "../components/PreviewProject";
 
 type HomeProps = {
   year: string;
@@ -79,46 +80,10 @@ export default function Home({ year }: HomeProps) {
         <section className={styles.PreviewPortfolio} id="projects">
           <h1>Projetos</h1>
           <div className={styles.ContainerPreviewPortfolio}>
-            <div className="box">
-              <div className="imgBx">
-                <img src="https://images.pexels.com/photos/7213434/pexels-photo-7213434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="520" />
-              </div>
-              <div className="content">
-                <h3>Projeto x</h3>
-                <span>28/05/2021</span>
-              </div>
-            </div>
-
-            <div className="box">
-              <div className="imgBx">
-                <img src="https://images.pexels.com/photos/7213434/pexels-photo-7213434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="520" />
-              </div>
-              <div className="content">
-                <h3>Projeto x</h3>
-                <span>28/05/2021</span>
-              </div>
-            </div>
-
-            <div className="box">
-              <div className="imgBx">
-                <img src="https://images.pexels.com/photos/7213434/pexels-photo-7213434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="520" />
-              </div>
-              <div className="content">
-                <h3>Projeto x</h3>
-                <span>28/05/2021</span>
-              </div>
-            </div>
-
-            <div className="box">
-              <div className="imgBx">
-                <img src="https://images.pexels.com/photos/7213434/pexels-photo-7213434.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="520" />
-              </div>
-              <div className="content">
-                <h3>Projeto x</h3>
-                <span>28/05/2021</span>
-              </div>
-            </div>
-
+            <PreviewProject />
+            <PreviewProject />
+            <PreviewProject />
+            <PreviewProject />
           </div>
 
           <a href="#">Veja mais</a>
