@@ -9,18 +9,34 @@ import { Skills } from "../components/Skills";
 
 import { BsChevronCompactDown } from 'react-icons/bs'
 import { AiFillLinkedin, AiFillGithub, AiFillCodepenCircle } from 'react-icons/ai'
-import { PreviewProject } from "../components/PreviewProject";
+import { api } from "../services/api";
 
-type HomeProps = {
-  year: string;
+import { format, parseISO } from 'date-fns';
+import  ptBR  from 'date-fns/locale/pt-BR';
+import { Projects } from "../components/Projects";
+import { Footer } from "../components/Footer";
+
+interface Repository {
+  id: number;
+  name: string;
+  title: string;
+  thumbnail: string;
+  created_at: string;
+  default_branch: string;
 }
 
-export default function Home({ year }: HomeProps) {
+type RepositoriesFilterProps = Pick<Repository, "default_branch">
 
+interface HomeProps  {
+  year: string;
+  latestRepositories: Repository[];
+}
+
+export default function Home({ year, latestRepositories }: HomeProps) {
   return (
     <>
       <Head>
-        <title>Thalesousa</title>
+        <title>Home | Thalesousa</title>
       </Head>
       <Header />
 
@@ -78,16 +94,8 @@ export default function Home({ year }: HomeProps) {
         <Skills />
 
         <section className={styles.PreviewPortfolio} id="projects">
-          <h1>Projetos</h1>
-          <div className={styles.ContainerPreviewPortfolio}>
-            <PreviewProject />
-            <PreviewProject />
-            <PreviewProject />
-            <PreviewProject />
-          </div>
-
-          <a href="#">Veja mais</a>
-
+          <Projects repositories={latestRepositories} />
+          <Link href="/projetos"><a>Veja mais</a></Link>
         </section>
 
         <section className={styles.Contact} id="contact">
@@ -110,16 +118,8 @@ export default function Home({ year }: HomeProps) {
 
       </main>
 
-      <footer className={styles.Footer}>
-
-        <span>Vamos trabalhar juntos. <span>😃</span></span>
-        <ul>
-          <li><span>&#169;{year} Thales Sousa</span></li>
-          <li><a href="https://www.linkedin.com/in/thalesousa/"><AiFillLinkedin /></a></li>
-          <li><a href="https://github.com/Thalesousa"><AiFillGithub /></a></li>
-          <li><a href="https://codepen.io/thalesousa"><AiFillCodepenCircle /></a></li>
-        </ul>
-      </footer>
+      <Footer year={year} />
+      
     </>
 
   )
@@ -127,10 +127,30 @@ export default function Home({ year }: HomeProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const year = new Date().getFullYear();
+
+  const { data } = await api.get('repos');
+
+  const dataFilter = data.filter(
+    (repostiry: RepositoriesFilterProps) => {return repostiry.default_branch === 'port'}
+  )
+
+  const repositories = dataFilter.map((repository: Repository) => {
+    return {
+      id: repository.id,
+      name: repository.name,
+      title: repository.name.replace("-", " "),
+      // thumbnail: `https://raw.githubusercontent.com/Thalesousa/${repository.name}/port/.github/cover.png`,
+      thumbnail: `https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500`,
+      created_at: format(parseISO(repository.created_at), 'dd/MM/yyyy', { locale: ptBR }),
+    }
+  })
+  
+  const latestRepositories = repositories.slice(0, 4);
+
   return {
     props: {
-      year
+      year,
+      latestRepositories
     },
-    revalidate: 60 * 60 * 1,
   }
 }

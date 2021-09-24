@@ -152,14 +152,6 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 7rem;
-  
-  .ContainerPreviewPortfolio {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
 
   a {
     display: block;
@@ -172,7 +164,7 @@
       filter: brightness(70%);
     }
   }
-} 
+}
 
 .Contact {
   margin-bottom: 7rem;
@@ -219,46 +211,6 @@
       &:hover {
         background: transparent;
         color: var(--secondary);
-      }
-    }
-  }
-}
-
-.Footer {
-  height: 100vh;
-
-  background-color: var(--gray);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  span {
-    font-size: 3rem;
-  }
-
-  ul {
-    display: flex;
-    align-items: center;
-    margin-top: 2rem;
-    list-style: none;
-
-    li{
-      display: inline-block;
-      font-size: 1.75rem;
-      line-height: 0;
-
-      span {
-        font-size: 1rem;
-      }
-
-      & + li {
-        margin-left: 1rem;
-
-        &:hover {
-          color: var(--secondary);
-        }
       }
     }
   }
@@ -349,10 +301,6 @@
   .SocialLinks > svg {
     display: none;
   }
-
-  .Footer span{
-    font-size: 2rem;
-  }
 }
 
 @media screen and (max-width: 540px) {
@@ -367,12 +315,6 @@
   .Contact {
     form button {
       width: 100%;
-    }
-  }
-
-  .Footer {
-    span {
-      font-size: 1.25rem;
     }
   }
 }

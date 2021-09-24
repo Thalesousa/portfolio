@@ -1,0 +1,53 @@
+.Footer {
+  height: 100vh;
+
+  background-color: var(--gray);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    font-size: 3rem;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    list-style: none;
+
+    li{
+      display: inline-block;
+      font-size: 1.75rem;
+      line-height: 0;
+
+      span {
+        font-size: 1rem;
+      }
+
+      & + li {
+        margin-left: 1rem;
+
+        &:hover {
+          color: var(--secondary);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .Footer span{
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .Footer {
+    span {
+      font-size: 1.25rem;
+    }
+  }
+}
