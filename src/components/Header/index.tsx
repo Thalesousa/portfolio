@@ -1,22 +1,23 @@
 import { FaBars } from 'react-icons/fa';
 import styles from './styles.module.scss';
+import Link from 'next/link'
 
 export function Header() {
   return (
     <header className={styles.HeaderContainer}>
-      <a href="#home">
+      <Link href="/#home">
         <img src="./logo.svg" alt="thales sousa logo" />
-      </a>
+      </Link>
       <nav>
         <input type="checkbox" id="check" />
         <label htmlFor="check" className={styles.Checkbtn}>
           <FaBars />
         </label>
         <ul>
-          <li><a href="#about">Sobre</a></li>
-          <li><a href="#experience">Experiência</a></li>
-          <li><a href="#projects">Projetos</a></li>
-          <li><a href="#contact">Contato</a></li>
+          <li><Link href="/#about">Sobre</Link></li>
+          <li><Link href="/#experience">Experiência</Link></li>
+          <li><Link href="/#projects">Projetos</Link></li>
+          <li><Link href="/#contact">Contato</Link></li>
         </ul>
       </nav>
     </header>
