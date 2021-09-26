@@ -14,8 +14,8 @@
   right: 0;
   padding: 2rem 3rem;
 
-  img {
-    width: 48px;
+  svg:hover > path {
+    stroke: var(--secondary);
   }
 
   nav {

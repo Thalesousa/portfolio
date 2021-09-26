@@ -40,8 +40,7 @@ export default function Home({ year, latestRepositories }: HomeProps) {
       </Head>
       <Header />
 
-      <main className={styles.Container}>
-
+      <main>
         <section className={styles.Hero} id="home">
           <div className={styles.HeroContent}>
             <article>
@@ -128,7 +127,7 @@ export default function Home({ year, latestRepositories }: HomeProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const year = new Date().getFullYear();
 
-  const { data } = await api.get('repos');
+  const { data } = await api.get('/users/Thalesousa/repos');
 
   const dataFilter = data.filter(
     (repostiry: RepositoriesFilterProps) => {return repostiry.default_branch === 'port'}

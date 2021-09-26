@@ -1,0 +1,91 @@
+.Project {
+  padding: 4rem 0;
+
+  img {
+    max-width: 1000px;
+  }
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  >span {
+    font-size: 0.6rem;
+    padding-top: 0.8rem;
+    text-align: center;
+    font-weight: 200;
+  }
+
+  .Description {
+    max-width: 800px;
+    color: #828282;
+    text-align: center;
+    font-size: 1.25rem;
+    margin: 4rem 0;
+
+    span {
+      display: block;
+
+      & + span {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  .Links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 2rem;
+
+    margin-bottom: 4rem;
+
+    a {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      line-height: 0;
+      padding: 1rem;
+      font-size: 1rem;
+      width: 150px;
+      border: 2px solid var(--secondary);
+      color: var(--secondary);
+      transition: filter 0.2s ease-in;
+
+      &:hover {
+        filter: brightness(70%);
+      }
+
+      span {
+        margin-left: 8px;
+      }
+
+    }
+  }
+
+  .Languages {
+    width: 100%;
+    margin-bottom: 4rem;
+    h2 {
+      text-align: center;
+    }
+    ul {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      li {
+        font-size: 1.25rem;
+        line-height: 2.25rem;
+        padding: 1rem;
+        color: #828282;
+        font-weight: 200;
+
+      }
+    }
+  }
+}

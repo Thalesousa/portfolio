@@ -50,7 +50,7 @@ export default function Projetos({repositories, year}: ProjetosProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const year = new Date().getFullYear();
-  const { data } = await api.get('repos');
+  const { data } = await api.get('/users/Thalesousa/repos');
 
   const dataFilter = data.filter(
     (repostiry: RepositoriesFilterProps) => {return repostiry.default_branch === 'port'}
@@ -61,8 +61,7 @@ export const getStaticProps: GetStaticProps = async () => {
       id: repository.id,
       name: repository.name,
       title: repository.name.replace("-", " "),
-      // thumbnail: `https://raw.githubusercontent.com/Thalesousa/${repository.name}/port/.github/cover.png`,
-      thumbnail: `https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500`,
+      thumbnail: `https://raw.githubusercontent.com/Thalesousa/Caravan-Origamid/port/.github/thumbnail.png`,
       created_at: format(parseISO(repository.created_at), 'dd/MM/yyyy', { locale: ptBR }),
     }
   })
