@@ -78,7 +78,7 @@
         display: block;
       }
       
-      input:checked ~ ul{
+      input[type="checkbox"]:checked ~ ul{
         left: -100%;
       }
 
