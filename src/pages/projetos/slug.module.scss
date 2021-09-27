@@ -89,3 +89,34 @@
     }
   }
 }
+
+@media screen and (max-width: 1140px) {
+  .Project {
+    img {
+      width: 700px;
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .Project {
+    padding-top: 7rem;
+
+    img {
+      width: 500px;
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .Project {
+    img {
+      width: 300px;
+    }
+
+    .Links {
+      flex-direction: column;
+      gap: 2rem 0;
+    }
+  }
+}

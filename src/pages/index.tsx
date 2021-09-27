@@ -2,19 +2,17 @@ import { GetStaticProps } from "next"
 import Link from 'next/link'
 import Head from 'next/head';
 
-import styles from './home.module.scss';
-
-import { Header } from '../components/Header'
-import { Skills } from "../components/Skills";
+import { useRepositories } from "../hooks/useRepositories";
 
 import { BsChevronCompactDown } from 'react-icons/bs'
 import { AiFillLinkedin, AiFillGithub, AiFillCodepenCircle } from 'react-icons/ai'
-import { api } from "../services/api";
 
-import { format, parseISO } from 'date-fns';
-import  ptBR  from 'date-fns/locale/pt-BR';
+import { Header } from '../components/Header'
+import { Skills } from "../components/Skills";
 import { Projects } from "../components/Projects";
 import { Footer } from "../components/Footer";
+
+import styles from './home.module.scss';
 
 interface Repository {
   id: number;
@@ -24,8 +22,6 @@ interface Repository {
   created_at: string;
   default_branch: string;
 }
-
-type RepositoriesFilterProps = Pick<Repository, "default_branch">
 
 interface HomeProps  {
   year: string;
@@ -118,7 +114,6 @@ export default function Home({ year, latestRepositories }: HomeProps) {
       </main>
 
       <Footer year={year} />
-      
     </>
 
   )
@@ -127,24 +122,9 @@ export default function Home({ year, latestRepositories }: HomeProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const year = new Date().getFullYear();
 
-  const { data } = await api.get('/users/Thalesousa/repos');
-
-  const dataFilter = data.filter(
-    (repostiry: RepositoriesFilterProps) => {return repostiry.default_branch === 'port'}
-  )
-
-  const repositories = dataFilter.map((repository: Repository) => {
-    return {
-      id: repository.id,
-      name: repository.name,
-      title: repository.name.replace("-", " "),
-      // thumbnail: `https://raw.githubusercontent.com/Thalesousa/${repository.name}/port/.github/cover.png`,
-      thumbnail: `https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500`,
-      created_at: format(parseISO(repository.created_at), 'dd/MM/yyyy', { locale: ptBR }),
-    }
-  })
+  const repositories: Promise<Repository[]> = useRepositories();
   
-  const latestRepositories = repositories.slice(0, 4);
+  const latestRepositories = (await repositories).slice(0, 4);
 
   return {
     props: {
