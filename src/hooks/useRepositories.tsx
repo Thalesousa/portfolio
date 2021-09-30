@@ -27,7 +27,7 @@ export async function useRepositories() {
       id: repository.id,
       name: repository.name,
       title: repository.name.replace("-", " "),
-      thumbnail: `https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500`,
+      thumbnail: `https://raw.githubusercontent.com/Thalesousa/${repository.name}/port/.github/thumbnail.png`,
       created_at: useFormatDate(repository.created_at)
     }
   })
