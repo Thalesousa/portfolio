@@ -2,7 +2,7 @@ import { GetStaticProps } from "next"
 import Link from 'next/link'
 import Head from 'next/head';
 
-import { useRepositories } from "../hooks/useRepositories";
+import { UseRepositories } from "../hooks/UseRepositories";
 
 import { BsChevronCompactDown } from 'react-icons/bs'
 import { AiFillLinkedin, AiFillGithub, AiFillCodepenCircle } from 'react-icons/ai'
@@ -122,7 +122,7 @@ export default function Home({ year, latestRepositories }: HomeProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const year = new Date().getFullYear();
 
-  const repositories: Promise<Repository[]> = useRepositories();
+  const repositories: Promise<Repository[]> = UseRepositories();
   
   const latestRepositories = (await repositories).slice(0, 4);
 

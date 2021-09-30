@@ -6,7 +6,7 @@ import { Projects } from "../../components/Projects";
 import { Footer } from '../../components/Footer';
 
 import styles from './styles.module.scss';
-import { useRepositories } from '../../hooks/useRepositories';
+import { UseRepositories } from '../../hooks/UseRepositories';
 
 
 interface Repository {
@@ -44,7 +44,7 @@ export default function Projetos({repositories, year}: ProjetosProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const year = new Date().getFullYear();
-  const repositories: Promise<Repository[]> = await useRepositories();
+  const repositories: Promise<Repository[]> = await UseRepositories();
   
   return {
     props: {

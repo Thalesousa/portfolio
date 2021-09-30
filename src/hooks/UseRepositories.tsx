@@ -1,5 +1,5 @@
 import { api } from '../services/api';
-import { useFormatDate } from './useFormatDate';
+import { UseFormatDate } from './UseFormatDate';
 
 interface Repository {
   id: number;
@@ -10,7 +10,7 @@ interface Repository {
   default_branch: string;
 }
 
-export async function useRepositories() {
+export async function UseRepositories() {
   const { data } = await api.get('/users/Thalesousa/repos');
 
   const repositoryWithDefaultBranchNamePort = data.filter(
@@ -28,7 +28,7 @@ export async function useRepositories() {
       name: repository.name,
       title: repository.name.replace("-", " "),
       thumbnail: `https://raw.githubusercontent.com/Thalesousa/${repository.name}/port/.github/thumbnail.png`,
-      created_at: useFormatDate(repository.created_at)
+      created_at: UseFormatDate(repository.created_at)
     }
   })
 
