@@ -54,17 +54,11 @@ export default function Project({repository, year}: ProjectProps) {
             <section className={slug.Languages}>
               <h2>Linguagens</h2>
               <ul>
-                <li>Html5</li>
-                <li>Css3</li>
-                <li>Typescript</li>
-                <li>React</li>
-
-                <li>Html5</li>
-                <li>Css3</li>
-                <li>Typescript</li>
-                <li>React</li>
-
+              {repository.languages.map((language, index) => (
+                <li key={index}>{language}</li>
+              ))}
               </ul>
+              
             </section>
 
             <img src={repository.imgPreview} alt={`${repository.title} imagem de capa`} />
