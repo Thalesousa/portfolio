@@ -33,12 +33,14 @@
         line-height: 100%;
         cursor: pointer;
         transition: all 0.3s ease;
-        border: 2px solid var(--secondary);
+        border: 2px solid var(--main);
         background: var(--gradient);
     
         &:hover {
           background: transparent;
           color: var(--secondary);
+          border: 2px solid var(--secondary);
+
         }
       }
     }
@@ -184,7 +186,8 @@
       }
         
       &:focus {
-        outline-color: var(--secondary);
+        outline: none;
+        border: 2px solid var(--secondary);
       }
     }
 
@@ -283,6 +286,9 @@
 }
 
 @media screen and (max-width: 720px) {
+  .Hero .HeroContent {
+    margin-top: 7rem;
+  }
   .Contact {
     form > div {
       flex-direction: column;

@@ -24,17 +24,11 @@ import "slick-carousel/slick/slick-theme.css";
 
 export function Skills() {
   const settings = {
-    className: "center",
-    centerMode: true,
+    dots: true,
     infinite: true,
-    centerPadding: "90px",
-    slidesToShow: 6,
-    slidesToScroll: 6,
-    cssEase: "linear",
-    autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 2000,
-
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 5,
     responsive: [
       {
         breakpoint: 1140,
@@ -48,7 +42,7 @@ export function Skills() {
         breakpoint: 720,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
+          slidesToScroll: 2,
           infinite: true,
 
         } 
@@ -63,7 +57,7 @@ export function Skills() {
 
         } 
       },
-    ]
+    ],
   };
 
   return (

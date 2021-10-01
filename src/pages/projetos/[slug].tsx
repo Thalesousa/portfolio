@@ -37,16 +37,16 @@ export default function Project({repository, year}: ProjectProps) {
       
       <main>
         <section className={slug.Project}>
-          <h1>{repository.title}</h1>
+          <h1 translate="no">{repository.title}</h1>
             <span>Criado em: {repository.createdAt}</span>
 
             <div className={slug.Description}>
-              <span>{repository.title}</span>
+              <span translate="no">{repository.title}</span>
               <span>{repository.description}</span>
             </div>
 
             <div className={slug.Links}>
-              {repository.homepage && <Link href={repository.homepage}><a><FaGlobeAmericas /> <span> Site </span></a></Link>}
+              {repository.homepage && <Link href={repository.homepage}><a><FaGlobeAmericas /> <span translate="no"> Site </span></a></Link>}
               
               <Link href={repository.github}><a><AiFillGithub /> <span> Repositório </span></a></Link>
             </div>

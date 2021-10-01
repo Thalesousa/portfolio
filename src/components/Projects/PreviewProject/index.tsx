@@ -20,7 +20,7 @@ export function PreviewProject({repository}: PreviewProjectProps) {
             <img src={repository.thumbnail} width="520" />
           </div>
           <div className={styles.ContentBox}>
-            <h3>{repository.title}</h3>
+            <h3 translate="no">{repository.title}</h3>
             <span>{repository.created_at}</span>
           </div>
         </div>
