@@ -120,15 +120,15 @@ export default function Home({ year, latestRepositories }: HomeProps) {
           </div>
           <div className={styles.SocialLinks}>
             <ul>
-              <li><a href="https://www.linkedin.com/in/thalesousa/" target="_blank"><AiFillLinkedin /></a></li>
-              <li><a href="https://github.com/Thalesousa" target="_blank"><AiFillGithub /></a></li>
-              <li><a href="https://codepen.io/thalesousa" target="_blank"><AiFillCodepenCircle /></a></li>
+              <li><a href="https://www.linkedin.com/in/thalesousa/" ><AiFillLinkedin /></a></li>
+              <li><a href="https://github.com/Thalesousa" ><AiFillGithub /></a></li>
+              <li><a href="https://codepen.io/thalesousa" ><AiFillCodepenCircle /></a></li>
             </ul>
 
             <BsChevronCompactDown />
 
             <span>
-              <a href="mailto:thalestjsb@gmail.com" target="_blank">thalestjsb@gmail.com</a>
+              <a href="mailto:thalestjsb@gmail.com" >thalestjsb@gmail.com</a>
             </span>
           </div>
 
