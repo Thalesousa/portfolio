@@ -1,9 +1,7 @@
 import { GetStaticProps } from "next"
 import Link from 'next/link'
 import Head from 'next/head';
-import React, { useState } from 'react';
-import axios from 'axios';
-import { toast } from 'react-toastify';
+import React from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { UseRepositories } from "../hooks/UseRepositories";
 
@@ -16,6 +14,7 @@ import { Projects } from "../components/Projects";
 import { Footer } from "../components/Footer";
 
 import styles from './home.module.scss';
+import { UseFormInputsSubmit } from "../hooks/UseFormInputsSubmit";
 
 interface Repository {
   id: number;
@@ -32,71 +31,12 @@ interface HomeProps {
 }
 
 export default function Home({ year, latestRepositories }: HomeProps) {
-  const [status, setStatus] = useState({
-    submitted: false,
-    submitting: false,
-    info: { error: false, msg: null },
-  });
-  
-  const [inputs, setInputs] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const handleServerResponse = (ok: any, msg: any) => {
-    if (ok) {
-      setStatus({
-        submitted: true,
-        submitting: false,
-        info: { error: false, msg: msg },
-      });
-      setInputs({
-        name: '',
-        email: '',
-        message: '',
-      });
-    } else {
-      setStatus({
-        submitted: false,
-        submitting: false,
-        info: { error: true, msg: msg },
-      });
-    }
-  };
-
-  const handleOnChange = (e: any) => {
-    e.persist();
-    setInputs((prev) => ({
-      ...prev,
-      subject: 'Thalesousa site novo email',
-      [e.target.id]: e.target.value,
-    }));
-    setStatus({
-      submitted: false,
-      submitting: false,
-      info: { error: false, msg: null },
-    });
-  };
-
-  const handleOnSubmit = (e: any) => {
-    e.preventDefault();
-    setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
-    axios({
-      method: 'POST',
-      url: 'https://formspree.io/mpzkndlk',
-      data: inputs,
-    })
-      .then((response) => {
-        handleServerResponse(
-          true,
-          toast.success('Mensagem enviada!')
-        );
-      })
-      .catch((error) => {
-        handleServerResponse(false, error.response.data.error);
-      });
-  };
+  const {
+    handleOnChange, 
+    handleOnSubmit, 
+    inputs, 
+    status
+  } = UseFormInputsSubmit();
 
   return (
     <>
@@ -198,14 +138,12 @@ export default function Home({ year, latestRepositories }: HomeProps) {
               Enviar
             </button>
           </form>
-          {status.info.error && (toast.error(`${status.info.msg}`))}
         </section>
 
       </main>
 
       <Footer year={year} />
     </>
-
   )
 }
 
