@@ -1,7 +1,10 @@
 import { GetStaticProps } from "next"
 import Link from 'next/link'
 import Head from 'next/head';
-
+import React, { useState } from 'react';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { UseRepositories } from "../hooks/UseRepositories";
 
 import { BsChevronCompactDown } from 'react-icons/bs'
@@ -23,12 +26,78 @@ interface Repository {
   default_branch: string;
 }
 
-interface HomeProps  {
+interface HomeProps {
   year: string;
   latestRepositories: Repository[];
 }
 
 export default function Home({ year, latestRepositories }: HomeProps) {
+  const [status, setStatus] = useState({
+    submitted: false,
+    submitting: false,
+    info: { error: false, msg: null },
+  });
+  
+  const [inputs, setInputs] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const handleServerResponse = (ok: any, msg: any) => {
+    if (ok) {
+      setStatus({
+        submitted: true,
+        submitting: false,
+        info: { error: false, msg: msg },
+      });
+      setInputs({
+        name: '',
+        email: '',
+        message: '',
+      });
+    } else {
+      setStatus({
+        submitted: false,
+        submitting: false,
+        info: { error: true, msg: msg },
+      });
+    }
+  };
+
+  const handleOnChange = (e: any) => {
+    e.persist();
+    setInputs((prev) => ({
+      ...prev,
+      subject: 'Thalesousa site novo email',
+      [e.target.id]: e.target.value,
+    }));
+    setStatus({
+      submitted: false,
+      submitting: false,
+      info: { error: false, msg: null },
+    });
+  };
+
+  const handleOnSubmit = (e: any) => {
+    e.preventDefault();
+    setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
+    axios({
+      method: 'POST',
+      url: 'https://formspree.io/mpzkndlk',
+      data: inputs,
+    })
+      .then((response) => {
+        handleServerResponse(
+          true,
+          toast.success('Mensagem enviada!')
+        );
+      })
+      .catch((error) => {
+        handleServerResponse(false, error.response.data.error);
+      });
+  };
+
   return (
     <>
       <Head>
@@ -78,12 +147,9 @@ export default function Home({ year, latestRepositories }: HomeProps) {
             <img src="./thalesousa.png" alt="Imagem de Thales Sousa" />
           </div>
           <blockquote>
-            <p>“Design não é apenas sobre como tal coisa se parece ou se sente. Design é como isso funciona.”</p>
+            <p>“A tecnologia move o mundo.”</p>
             <cite>Steve Jobs</cite>
           </blockquote>
-
-
-
         </section>
 
         <Skills />
@@ -95,20 +161,44 @@ export default function Home({ year, latestRepositories }: HomeProps) {
 
         <section className={styles.Contact} id="contact">
           <h1>Fale Comigo</h1>
-          <form action="">
-            <div>
-              <input type="text" placeholder="Nome"></input>
-              <input type="email" placeholder="Email" />
-            </div>
+          <form onSubmit={handleOnSubmit}>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              onChange={handleOnChange}
+              required
+              value={inputs.name}
+              placeholder="Nome completo"
+            />
+            <input
+              id="email"
+              type="email"
+              name="_replyto"
+              onChange={handleOnChange}
+              required
+              value={inputs.email}
+              placeholder="E-mail"
+            />
 
-            <input type="text" placeholder="Assunto" />
-            <textarea minLength={20} maxLength={500} placeholder="Mensagem" cols={30} rows={10} />
+            <textarea
+              minLength={20}
+              maxLength={500}
+              placeholder="Mensagem"
+              cols={30}
+              rows={10}
+              id="message"
+              name="message"
+              onChange={handleOnChange}
+              required
+              value={inputs.message}
+            />
 
-
-            <button type="submit">
+            <button type="submit" disabled={status.submitting}>
               Enviar
             </button>
           </form>
+          {status.info.error && (toast.error(`${status.info.msg}`))}
         </section>
 
       </main>
@@ -123,7 +213,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const year = new Date().getFullYear();
 
   const repositories: Promise<Repository[]> = UseRepositories();
-  
+
   const latestRepositories = (await repositories).slice(0, 4);
 
   return {
