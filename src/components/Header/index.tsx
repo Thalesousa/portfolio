@@ -20,7 +20,7 @@ export function Header() {
         </label>
         <ul>
           <li><Link href="/#about">Sobre</Link></li>
-          <li><Link href="/#experience">Experiência</Link></li>
+          <li><Link href="/#experience">Skills</Link></li>
           <li><Link href="/#projects">Projetos</Link></li>
           <li><Link href="/#contact">Contato</Link></li>
         </ul>
