@@ -1,11 +1,12 @@
 import { GetStaticProps } from "next"
 import Link from 'next/link'
 import Head from 'next/head';
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { UseRepositories } from "../hooks/UseRepositories";
 
 import { BsChevronCompactDown } from 'react-icons/bs'
+import { GrMail } from 'react-icons/gr'
 import { AiFillLinkedin, AiFillGithub, AiFillCodepenCircle } from 'react-icons/ai'
 
 import { Header } from '../components/Header'
@@ -15,6 +16,9 @@ import { Footer } from "../components/Footer";
 
 import styles from './home.module.scss';
 import { UseFormInputsSubmit } from "../hooks/UseFormInputsSubmit";
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 interface Repository {
   id: number;
@@ -38,6 +42,10 @@ export default function Home({ year, latestRepositories }: HomeProps) {
     status
   } = UseFormInputsSubmit();
 
+  useEffect(() => {
+    AOS.init({ duration: 2000});
+  })
+
   return (
     <>
       <Head>
@@ -48,36 +56,35 @@ export default function Home({ year, latestRepositories }: HomeProps) {
       <main>
         <section className={styles.Hero} id="home">
           <div className={styles.HeroContent}>
-            <article>
+            <article data-aos="fade-left">
               <span>Olá, eu sou</span>
               <h1>Thales Sousa</h1>
               <span>Front End Developer</span>
-              <Link href="https://drive.google.com/u/0/uc?id=13icu1MTJeRc1TPvkpUEglN6GRF63aCVe&export=download">
+              <Link href={`${process.env.NEXT_PUBLIC_LINK_CV_DOWNLOAD}`}>
                 <button> Download CV </button>
               </Link>
             </article>
-            <img src="./illustration.svg" alt="ilustração" />
+            <img src="./illustration.svg" alt="ilustração" data-aos="zoom-in"/>
           </div>
           <div className={styles.SocialLinks}>
             <ul>
               <li><a href="https://www.linkedin.com/in/thalesousa/" ><AiFillLinkedin /></a></li>
               <li><a href="https://github.com/Thalesousa" ><AiFillGithub /></a></li>
               <li><a href="https://codepen.io/thalesousa" ><AiFillCodepenCircle /></a></li>
+              <li><a href="mailto:thalestjsb@gmail.com" ><GrMail /></a></li>
             </ul>
-
-            <BsChevronCompactDown />
-
             <span>
-              <a href="mailto:thalestjsb@gmail.com" >thalestjsb@gmail.com</a>
+              <BsChevronCompactDown />
             </span>
+            
           </div>
 
         </section>
 
-        <section className={styles.About} id="about">
+        <section className={styles.About} id="about" data-aos="fade-up">
           <div className={styles.Presentation}>
-            <div className={styles.Resume}>
-              <h2>Olá</h2>
+            <div className={styles.Resume} >
+              <h2>&lt;&#47;&gt;</h2>
               <p>
                 Sou um desenvolvedor front-end dedicado com um olhar atento para
                 detalhes, e uma determinação para oferecer a mais alta qualidade.
@@ -94,13 +101,14 @@ export default function Home({ year, latestRepositories }: HomeProps) {
 
         <Skills />
 
-        <section className={styles.PreviewPortfolio} id="projects">
+        <section className={styles.PreviewPortfolio} id="projects" data-aos="fade-up">
           <Projects repositories={latestRepositories} />
           <Link href="/projetos"><a>Veja mais</a></Link>
         </section>
 
-        <section className={styles.Contact} id="contact">
+        <section className={styles.Contact} id="contact" data-aos="fade-up">
           <h1>Fale Comigo</h1>
+          
           <form onSubmit={handleOnSubmit}>
             <input
               id="name"
@@ -159,5 +167,6 @@ export const getStaticProps: GetStaticProps = async () => {
       year,
       latestRepositories
     },
+    revalidate: 60 * 60 * 24 * 3,
   }
 }

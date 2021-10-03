@@ -21,6 +21,8 @@ import {
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import 'aos/dist/aos.css';
+
 
 export function Skills() {
   const settings = {
@@ -61,7 +63,7 @@ export function Skills() {
   };
 
   return (
-    <section className={styles.Skills} id="experience">
+    <section className={styles.Skills} id="experience" data-aos="fade-up">
       <h2>Minhas Skills</h2>
       <Slider {...settings}>
         <div title="HTML 5"><AiFillHtml5  /><span>Html 5</span></div>

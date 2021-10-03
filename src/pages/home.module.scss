@@ -49,15 +49,17 @@
 
 .SocialLinks{
   display: flex;
-  justify-content: space-between;
   align-items: center;
-
+  justify-content: space-between;
   margin-bottom: 7rem;
 
-  & > svg {
-    font-size: 30px;
-    animation: move 2s infinite alternate;
+  span {
+    & > svg {
+      font-size: 30px;
+      animation: move 2s infinite alternate;
+    }
   }
+
 
   @keyframes move {
     0% {
@@ -68,19 +70,11 @@
     }
   }
 
-  span {
-    a {
-      font-size: 1rem;
-      &:hover {
-        color: var(--secondary);
-      }
-    }
-  }
-
   ul {
     list-style: none;
     display: flex;
     align-items: center;
+    margin-right: auto;
     li {
       display: inline-block;
       font-size: 32px;
@@ -304,8 +298,7 @@
 
 @media screen and (max-width: 540px) {
   .SocialLinks {
-    flex-direction: column;
-    justify-content: center;
+    margin: 0 auto 3rem;
     > span {
       display: none;
     }

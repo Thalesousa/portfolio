@@ -12,6 +12,7 @@ import { api } from "../../services/api"
 import slug from './slug.module.scss'
 import { AiFillGithub } from 'react-icons/ai'
 import { FaGlobeAmericas } from 'react-icons/fa'
+import { UseRepositories } from "../../hooks/UseRepositories";
 
 interface ProjectProps {
   repository: {
@@ -25,6 +26,15 @@ interface ProjectProps {
     imgPreview: string,
   },
   year: string,
+}
+
+interface Repository {
+  id: number;
+  name: string;
+  title: string;
+  thumbnail: string;
+  created_at: string;
+  default_branch: string;
 }
 
 export default function Project({repository, year}: ProjectProps) {
@@ -73,8 +83,19 @@ export default function Project({repository, year}: ProjectProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const repositories: Promise<Repository[]> = UseRepositories();
+
+  const latestRepositories = (await repositories).slice(0, 4);
+  
+  const paths = latestRepositories.map(repository => {
+    return {
+      params: {
+        slug: repository.name
+      }
+    }
+  })
   return {
-    paths: [],
+    paths,
     fallback: 'blocking',
   }
 }
@@ -102,7 +123,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
       props: {
         repository,
         year
-      }
+      },
+      revalidate: 60 * 60 * 24 * 3,
     }
 
   }catch{

@@ -1,5 +1,6 @@
 import { PreviewProject } from "./PreviewProject";
 import styles from './styles.module.scss';
+import 'aos/dist/aos.css';
 
 interface Repository {
   id: number;

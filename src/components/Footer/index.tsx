@@ -1,4 +1,5 @@
 import { AiFillLinkedin, AiFillGithub, AiFillCodepenCircle } from 'react-icons/ai'
+import { GrMail } from 'react-icons/gr'
 import styles from './styles.module.scss';
 
 interface FooterProps {
@@ -15,6 +16,7 @@ export function Footer({ year }: FooterProps) {
         <li><a href="https://www.linkedin.com/in/thalesousa/"><AiFillLinkedin /></a></li>
         <li><a href="https://github.com/Thalesousa"><AiFillGithub /></a></li>
         <li><a href="https://codepen.io/thalesousa"><AiFillCodepenCircle /></a></li>
+        <li><a href="mailto:thalestjsb@gmail.com" ><GrMail /></a></li>
       </ul>
     </footer>
   )
