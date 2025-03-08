@@ -21,7 +21,6 @@ export function PreviewProject({repository}: PreviewProjectProps) {
           </div>
           <div className={styles.ContentBox}>
             <h3 translate="no">{repository.title}</h3>
-            <span>{repository.created_at}</span>
           </div>
         </div>
       </a>
