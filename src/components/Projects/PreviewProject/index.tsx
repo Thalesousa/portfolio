@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import styles from './styles.module.scss';
+import Image from 'next/image';
 
 interface PreviewProjectProps {
   repository : {
@@ -14,16 +15,14 @@ interface PreviewProjectProps {
 export function PreviewProject({repository}: PreviewProjectProps) {
   return (
     <Link href={`/projetos/${repository.name}`}>
-      <a>
         <div className={styles.Box}>
           <div className={styles.ImgBx}>
-            <img src={repository.thumbnail} width="520" />
+            <Image src={repository.thumbnail} width={520} height={300} alt='' />
           </div>
           <div className={styles.ContentBox}>
             <h3 translate="no">{repository.title}</h3>
           </div>
         </div>
-      </a>
     </Link>
   )
 }

@@ -1,30 +1,36 @@
-import styles from './styles.module.scss';
+"use client";
+
+import { useEffect } from "react";
+import styles from "./styles.module.scss";
 
 import Slider from "react-slick";
-import { FiFigma } from 'react-icons/fi'
-import { AiFillHtml5 } from 'react-icons/ai'
+import AOS from "aos";
 
-import { 
-  FaCss3Alt, 
-  FaGitAlt, 
-  FaSass, 
-  FaBootstrap, 
-  FaGithubAlt
-} from 'react-icons/fa'
-
-import { 
-  SiJavascript, 
-  SiTypescript, 
-  SiReact, 
-  SiNextDotJs 
-} from 'react-icons/si'
+import { FiFigma } from "react-icons/fi";
+import { AiFillHtml5 } from "react-icons/ai";
+import {
+  FaCss3Alt,
+  FaGitAlt,
+  FaSass,
+  FaBootstrap,
+  FaGithubAlt,
+} from "react-icons/fa";
+import {
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiNextdotjs,
+} from "react-icons/si";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import 'aos/dist/aos.css';
-
+import "aos/dist/aos.css";
 
 export function Skills() {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -38,26 +44,23 @@ export function Skills() {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
-        }
+        },
       },
       {
         breakpoint: 720,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 1.5,
+          slidesToScroll: 1,
           infinite: true,
-
-        } 
+        },
       },
-
       {
         breakpoint: 540,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-
-        } 
+        },
       },
     ],
   };
@@ -66,19 +69,51 @@ export function Skills() {
     <section className={styles.Skills} id="experience" data-aos="fade-up">
       <h2>Minhas Skills</h2>
       <Slider {...settings}>
-        <div title="HTML 5"><AiFillHtml5  /><span>Html 5</span></div>
-        <div title="CSS 3"><FaCss3Alt /><span>CSS 3</span></div>
-        <div title="Javascript"><SiJavascript /><span>Javascript</span></div>
-        <div title="React"><SiReact /><span>React</span></div>
-        <div title="Bootstrap"><FaBootstrap /><span>Bootstrap</span></div>
-        <div title="Styled components"><img src="./styled-components.png" width="20" /><span>Styled components</span></div>
-        <div title="Typescript"><SiTypescript /><span>Typescript</span></div>
-        <div title="NextJS"><SiNextDotJs /><span>NextJS</span></div>
-        <div title="Sass"><FaSass /><span>Sass</span></div>
-        <div title="Git"><FaGitAlt /><span>Git</span></div>
-        <div title="Git"><FaGithubAlt /><span>Github</span></div>
-        <div title="Figma"><FiFigma /><span>Figma</span></div>
+        <div title="HTML 5">
+          <AiFillHtml5 />
+          <span>HTML 5</span>
+        </div>
+        <div title="CSS 3">
+          <FaCss3Alt />
+          <span>CSS 3</span>
+        </div>
+        <div title="JavaScript">
+          <SiJavascript />
+          <span>JavaScript</span>
+        </div>
+        <div title="React">
+          <SiReact />
+          <span>React</span>
+        </div>
+        <div title="Bootstrap">
+          <FaBootstrap />
+          <span>Bootstrap</span>
+        </div>
+        <div title="TypeScript">
+          <SiTypescript />
+          <span>TypeScript</span>
+        </div>
+        <div title="NextJS">
+          <SiNextdotjs />
+          <span>NextJS</span>
+        </div>
+        <div title="Sass">
+          <FaSass />
+          <span>Sass</span>
+        </div>
+        <div title="Git">
+          <FaGitAlt />
+          <span>Git</span>
+        </div>
+        <div title="GitHub">
+          <FaGithubAlt />
+          <span>GitHub</span>
+        </div>
+        <div title="Figma">
+          <FiFigma />
+          <span>Figma</span>
+        </div>
       </Slider>
     </section>
-  )
+  );
 }

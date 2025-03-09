@@ -3,30 +3,33 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "aos": "^3.0.0-beta.6",
-    "axios": "^0.21.4",
-    "date-fns": "^2.24.0",
-    "next": "11.1.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.2.0",
-    "react-slick": "^0.28.1",
-    "react-toastify": "^8.0.3",
-    "sass": "^1.39.2",
+    "aos": "^2.3.4",
+    "axios": "^1.8.2",
+    "date-fns": "^4.1.0",
+    "next": "15.2.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
+    "react-slick": "^0.30.3",
+    "react-toastify": "^11.0.5",
+    "sass": "^1.85.1",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
-    "@types/aos": "^3.0.4",
-    "@types/react": "17.0.20",
-    "@types/react-slick": "^0.23.5",
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.1.2",
-    "typescript": "4.4.2"
+    "@eslint/eslintrc": "^3",
+    "@types/aos": "^3.0.7",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/react-slick": "^0.23.13",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.1",
+    "typescript": "^5"
   }
 }

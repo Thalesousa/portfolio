@@ -90,6 +90,24 @@
   }
 }
 
+.ImageContainer {
+
+  width: 100%;
+  justify-content: center;
+  display: flex;
+
+  > div {
+    position: unset !important;
+  }
+
+  .Image {
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+  }
+}
+
 @media screen and (max-width: 1140px) {
   .Project {
     img {
