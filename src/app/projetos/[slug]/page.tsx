@@ -1,8 +1,6 @@
-import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { format, parseISO } from "date-fns";
-
 import { AiFillGithub } from "react-icons/ai";
 import { FaGlobeAmericas } from "react-icons/fa";
 
@@ -23,22 +21,6 @@ interface Repository {
   createdAt: string;
   imgPreview: string;
 }
-
-interface ProjectPageProps {
-  params: { slug: string };
-}
-
-
-export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
-  if (!params?.slug) {
-    return { title: "Projeto | Thalesousa" };
-  }
-
-  const repository = await getRepository(params.slug);
-  return { title: `${repository?.title || "Projeto"} | Thalesousa` };
-}
-
-
 
 async function getRepository(slug: string): Promise<Repository | null> {
   try {
@@ -61,9 +43,11 @@ async function getRepository(slug: string): Promise<Repository | null> {
   }
 }
 
-export default async function Project({ params }: ProjectPageProps) {
+export default async function Project({ params }: { params: Promise<{slug: string}>}) {
+  const { slug }  = await params;
+
   const year = new Date().getFullYear();
-  const repository = await getRepository(params?.slug);
+  const repository = await getRepository(slug);
 
   if (!repository) {
     notFound();
