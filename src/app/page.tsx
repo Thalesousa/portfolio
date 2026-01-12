@@ -1,7 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Metadata } from "next";
-import { BsChevronCompactDown } from "react-icons/bs";
+import { BsChevronDown } from "react-icons/bs";
 import { GrMail } from "react-icons/gr";
 import {
   AiFillLinkedin,
@@ -104,10 +103,10 @@ export default async function Home() {
                 </a>
               </li>
             </ul>
-            <span className="text-3xl animate-bounce">
-              <BsChevronCompactDown />
-            </span>
           </div>
+            <span className="text-3xl animate-bounce block ml-auto">
+                <BsChevronDown />
+            </span>
         </section>
 
         {/* About Section */}
@@ -117,13 +116,13 @@ export default async function Home() {
               <h2 className="text-primary text-5xl md:text-6xl font-semibold mb-6">
                 &lt;&#47;&gt;
               </h2>
+            </div>
               <p className="text-lg md:text-xl font-light leading-relaxed">
                 Sou um desenvolvedor fullstack dedicado com um olhar atento para
                 detalhes e uma determinação para oferecer a mais alta qualidade.
                 Tenho muito orgulho do meu trabalho e sempre tento melhorar a
                 mim mesmo a cada projeto em que trabalho.
               </p>
-            </div>
           </div>
         </section>
 
