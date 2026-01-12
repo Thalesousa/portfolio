@@ -143,7 +143,7 @@ export default async function Home() {
         {/* Contact Section */}
         <section className="py-24 flex flex-col items-center" id="contact">
           <div className="text-center max-w-2xl">
-            <span className="text-secondary text-sm uppercase tracking-widest mb-4 block">
+            <span className="text-primary text-sm uppercase tracking-widest mb-4 block">
               Contato
             </span>
             <h1 className="text-primary text-4xl md:text-5xl font-semibold mb-6">

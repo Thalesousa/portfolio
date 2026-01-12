@@ -25,7 +25,7 @@ export function PreviewProject({ repository }: PreviewProjectProps) {
           />
           <div className="absolute inset-0 bg-secondary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
             <h3
-              className="text-2xl font-semibold text-base-200"
+              className="text-2xl font-semibold text-base-content"
               translate="no"
             >
               {repository.title}

@@ -18,6 +18,7 @@ import {
   SiReact,
   SiNextdotjs,
   SiLaravel,
+  SiMysql,
 } from "react-icons/si";
 
 import "slick-carousel/slick/slick.css";
@@ -73,6 +74,7 @@ export function Skills() {
     { icon: <SiNextdotjs />, name: "NextJS" },
     { icon: <FaPhp />, name: "PHP" },
     { icon: <SiLaravel />, name: "Laravel" },
+    { icon: <SiMysql />, name: "MySQL" },
     { icon: <FaGitAlt />, name: "Git" },
     { icon: <FaGithubAlt />, name: "GitHub" },
   ];
