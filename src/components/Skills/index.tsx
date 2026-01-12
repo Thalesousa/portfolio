@@ -79,7 +79,7 @@ export function Skills() {
 
   return (
     <section className="mb-28 px-4" id="experience">
-      <h2 className="gradient-text text-4xl md:text-5xl font-semibold text-center my-16">
+      <h2 className="text-primary text-4xl md:text-5xl font-semibold text-center my-16">
         Minhas Skills
       </h2>
 

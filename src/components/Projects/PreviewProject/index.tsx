@@ -14,11 +14,11 @@ interface PreviewProjectProps {
 export function PreviewProject({ repository }: PreviewProjectProps) {
   return (
     <Link href={`/projetos/${repository.name}`}>
-      <div className="card w-[320px] h-[200px] sm:w-[420px] sm:h-[200px] lg:w-[520px] lg:h-[300px] bg-base-100 shadow-[0_30px_30px_rgba(0,0,0,0.5)] overflow-hidden group">
+      <div className="card w-[320px] h-[200px] sm:w-[420px] sm:h-[200px] lg:w-[300px] lg:h-[200px] bg-base-100 overflow-hidden group">
         <figure className="relative w-full h-full">
           <Image
             src={repository.thumbnail}
-            width={520}
+            width={300}
             height={300}
             alt={repository.title}
             className="object-cover w-full h-full brightness-[0.7] group-hover:brightness-100 transition-all duration-300"

@@ -64,7 +64,7 @@ export default async function Project({
       <main className="container-main">
         <section className="py-16 pt-28 flex flex-col items-center">
           <h1
-            className="gradient-text text-4xl md:text-5xl font-semibold text-center"
+            className="text-primary text-4xl md:text-5xl font-semibold text-center"
             translate="no"
           >
             {repository.title}
@@ -105,7 +105,7 @@ export default async function Project({
 
           {/* Languages */}
           <section className="w-full mb-8">
-            <h2 className="gradient-text text-2xl font-semibold text-center mb-4">
+            <h2 className="text-primary text-2xl font-semibold text-center mb-4">
               Linguagens
             </h2>
             <ul className="flex flex-wrap justify-center gap-2">

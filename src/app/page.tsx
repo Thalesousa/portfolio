@@ -35,7 +35,7 @@ async function fetchRepositories(): Promise<Repository[]> {
 
 export default async function Home() {
   const year = new Date().getFullYear().toString();
-  const latestRepositories = (await fetchRepositories()).slice(0, 4);
+  const latestRepositories = (await fetchRepositories()).slice(0, 3);
 
   return (
     <>
@@ -50,14 +50,14 @@ export default async function Home() {
           <div className="flex flex-col items-center justify-center text-center">
             <article>
               <span className="text-lg font-light">Olá, eu sou</span>
-              <h1 className="gradient-text text-4xl md:text-5xl lg:text-7xl font-semibold my-4">
+              <h1 className="text-primary text-4xl md:text-5xl lg:text-7xl font-semibold my-4">
                 Thales Sousa
               </h1>
               <span className="text-lg font-light block mb-6">
                 Fullstack Developer
               </span>
               <Link href={`${process.env.NEXT_PUBLIC_LINK_CV_DOWNLOAD}`}>
-                <button className="btn btn-gradient px-8">Download CV</button>
+                <button className="btn btn-soft btn-secondary px-8">Download CV</button>
               </Link>
             </article>
           </div>
@@ -113,8 +113,8 @@ export default async function Home() {
         {/* About Section */}
         <section className="flex flex-col items-center py-16" id="about">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 w-full">
-            <div className="max-w-[700px]">
-              <h2 className="gradient-text text-5xl md:text-6xl font-semibold mb-6">
+            <div className="max-w-175">
+              <h2 className="text-primary text-5xl md:text-6xl font-semibold mb-6">
                 &lt;&#47;&gt;
               </h2>
               <p className="text-lg md:text-xl font-light leading-relaxed">
@@ -160,7 +160,7 @@ export default async function Home() {
             <span className="text-secondary text-sm uppercase tracking-widest mb-4 block">
               Contato
             </span>
-            <h1 className="gradient-text text-4xl md:text-5xl font-semibold mb-6">
+            <h1 className="text-primary text-4xl md:text-5xl font-semibold mb-6">
               Vamos trabalhar juntos?
             </h1>
             <p className="text-lg text-gray-400 mb-10">

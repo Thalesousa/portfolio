@@ -1,4 +1,3 @@
-import daisyui from "daisyui";
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -16,27 +15,6 @@ const config = {
         container: "1366px",
       },
     },
-  },
-  plugins: [daisyui],
-  daisyui: {
-    themes: [
-      {
-        dark: {
-          primary: "#6ed2cd",
-          secondary: "#6ed2cd",
-          accent: "#6ed2cd",
-          neutral: "#121212",
-          "base-100": "#151616",
-          "base-200": "#121212",
-          "base-300": "#0a0a0a",
-          info: "#3abff8",
-          success: "#36d399",
-          warning: "#fbbd23",
-          error: "#f87272",
-        },
-      },
-    ],
-    darkTheme: "dark",
   },
 };
 

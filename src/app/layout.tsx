@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" data-theme="dark">
+    <html lang="pt-BR" data-theme="halloween">
       <head>
         <link rel="shortcut icon" href="/logo.svg" type="image/svg" />
       </head>

@@ -8,7 +8,7 @@ export default function Form() {
 
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <h1 className="gradient-text text-4xl md:text-5xl font-semibold text-center py-8">
+      <h1 className="text-primary text-4xl md:text-5xl font-semibold text-center py-8">
         Fale Comigo
       </h1>
 
