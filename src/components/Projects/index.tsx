@@ -18,7 +18,7 @@ export function Projects({ repositories }: ProjectsProps) {
       <h1 className="text-primary text-4xl md:text-5xl font-semibold text-center py-8">
         Projetos
       </h1>
-      <div className="flex flex-wrap justify-start gap-5">
+      <div className="flex flex-wrap justify-center lg:justify-start items-center gap-5">
         {repositories.map((repository) => {
           return <PreviewProject repository={repository} key={repository.id} />;
         })}

@@ -39,22 +39,22 @@ export function Header() {
         <nav className="hidden md:flex">
           <ul className="menu menu-horizontal px-1 text-lg font-light gap-2">
             <li>
-              <Link href="/#about" className="hover:text-secondary">
+              <Link href="/#about" className="hover:text-primary font-semibold">
                 Sobre
               </Link>
             </li>
             <li>
-              <Link href="/#experience" className="hover:text-secondary">
+              <Link href="/#experience" className="hover:text-primary font-semibold">
                 Skills
               </Link>
             </li>
             <li>
-              <Link href="/#projects" className="hover:text-secondary">
+              <Link href="/#projects" className="hover:text-primary font-semibold">
                 Projetos
               </Link>
             </li>
             <li>
-              <Link href="/#contact" className="hover:text-secondary">
+              <Link href="/#contact" className="hover:text-primary font-semibold">
                 Contato
               </Link>
             </li>
@@ -73,17 +73,24 @@ export function Header() {
 
       {/* Mobile Navigation Drawer */}
       <div
-        className={`fixed inset-0 bg-base-100/95 z-40 md:hidden transition-transform duration-300 ${
+        className={`fixed inset-0 min-h-screen bg-base-100/95 z-99 md:hidden transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
-      >
+          >
+        <button
+            className="btn btn-ghost md:hidden text-2xl"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+            >
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </button>
         <nav className="flex flex-col items-center justify-center h-full">
           <ul className="menu text-2xl gap-6 text-center">
             <li>
               <Link
                 href="/#about"
                 onClick={closeMenu}
-                className="hover:text-secondary"
+                className="hover:text-primary"
               >
                 Sobre
               </Link>
@@ -92,7 +99,7 @@ export function Header() {
               <Link
                 href="/#experience"
                 onClick={closeMenu}
-                className="hover:text-secondary"
+                className="hover:text-primary"
               >
                 Skills
               </Link>
@@ -101,7 +108,7 @@ export function Header() {
               <Link
                 href="/#projects"
                 onClick={closeMenu}
-                className="hover:text-secondary"
+                className="hover:text-primary"
               >
                 Projetos
               </Link>
@@ -110,7 +117,7 @@ export function Header() {
               <Link
                 href="/#contact"
                 onClick={closeMenu}
-                className="hover:text-secondary"
+                className="hover:text-primary"
               >
                 Contato
               </Link>

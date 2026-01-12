@@ -57,7 +57,7 @@ export default async function Home() {
                 Fullstack Developer
               </span>
               <Link href={`${process.env.NEXT_PUBLIC_LINK_CV_DOWNLOAD}`}>
-                <button className="btn btn-soft btn-secondary px-8">Download CV</button>
+                <button className="btn btn-secondary px-8">Download CV</button>
               </Link>
             </article>
           </div>
@@ -124,20 +124,7 @@ export default async function Home() {
                 mim mesmo a cada projeto em que trabalho.
               </p>
             </div>
-            <Image
-              src="/thalesousa.png"
-              alt="Imagem de Thales Sousa"
-              width={300}
-              height={300}
-              className="rounded-full"
-            />
           </div>
-          <blockquote className="mt-16 text-right w-full">
-            <p className="text-xl md:text-2xl italic">
-              &quot;A tecnologia move o mundo.&quot;
-            </p>
-            <cite className="text-secondary mt-2 block">Steve Jobs</cite>
-          </blockquote>
         </section>
 
         {/* Skills Section */}
