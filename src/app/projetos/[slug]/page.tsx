@@ -90,7 +90,7 @@ export default async function Project({ params }: { params: Promise<{slug: strin
             <Image
               src={repository.imgPreview}
               alt={`${repository.title} imagem de capa`}
-              layout="fill"
+              fill
               className={styles.Image}
             />
           </div>

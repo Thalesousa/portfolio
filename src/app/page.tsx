@@ -57,9 +57,9 @@ export default async function Home() {
           </div>
           <div className={styles.SocialLinks}>
             <ul>
-              <li><a href="https://www.linkedin.com/in/thalesousa/" target="_blank"><AiFillLinkedin /></a></li>
-              <li><a href="https://github.com/Thalesousa" target="_blank"><AiFillGithub /></a></li>
-              <li><a href="https://codepen.io/thalesousa" target="_blank"><AiFillCodepenCircle /></a></li>
+              <li><a href="https://www.linkedin.com/in/thalesousa/" target="_blank" rel="noreferrer"><AiFillLinkedin /></a></li>
+              <li><a href="https://github.com/Thalesousa" target="_blank" rel="noreferrer"><AiFillGithub /></a></li>
+              <li><a href="https://codepen.io/thalesousa" target="_blank" rel="noreferrer"><AiFillCodepenCircle /></a></li>
               <li><a href="mailto:thalestjsb@gmail.com"><GrMail /></a></li>
             </ul>
             <span>
