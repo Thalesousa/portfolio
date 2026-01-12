@@ -1,6 +1,4 @@
 import { PreviewProject } from "./PreviewProject";
-import styles from './styles.module.scss';
-import 'aos/dist/aos.css';
 
 interface Repository {
   id: number;
@@ -10,19 +8,21 @@ interface Repository {
   created_at: string;
 }
 
-interface ProjectsProps  {
+interface ProjectsProps {
   repositories: Repository[];
 }
 
-export function Projects({repositories}: ProjectsProps) {
+export function Projects({ repositories }: ProjectsProps) {
   return (
     <>
-      <h1>Projetos</h1>
-      <div className={styles.ContainerPortfolio}>
-        {repositories.map(repository => {
-          return  <PreviewProject repository={repository} key={repository.id} />
+      <h1 className="gradient-text text-4xl md:text-5xl font-semibold text-center py-8">
+        Projetos
+      </h1>
+      <div className="flex flex-wrap justify-center gap-5">
+        {repositories.map((repository) => {
+          return <PreviewProject repository={repository} key={repository.id} />;
         })}
       </div>
     </>
-  )
+  );
 }

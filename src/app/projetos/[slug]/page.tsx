@@ -7,7 +7,6 @@ import { FaGlobeAmericas } from "react-icons/fa";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { api } from "@/services/api";
-import styles from "./slug.module.scss";
 import { ptBR } from "date-fns/locale";
 import Image from "next/image";
 
@@ -35,16 +34,22 @@ async function getRepository(slug: string): Promise<Repository | null> {
       homepage: data.homepage,
       languages: Object.keys(languages.data),
       github: data.html_url,
-      createdAt: format(parseISO(data.created_at), "dd/MM/yyyy", { locale: ptBR }),
-      imgPreview
+      createdAt: format(parseISO(data.created_at), "dd/MM/yyyy", {
+        locale: ptBR,
+      }),
+      imgPreview,
     };
   } catch {
     return null;
   }
 }
 
-export default async function Project({ params }: { params: Promise<{slug: string}>}) {
-  const { slug }  = await params;
+export default async function Project({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
 
   const year = new Date().getFullYear();
   const repository = await getRepository(slug);
@@ -56,42 +61,69 @@ export default async function Project({ params }: { params: Promise<{slug: strin
   return (
     <>
       <Header />
-      <main>
-        <section className={styles.Project}>
-          <h1 translate="no">{repository.title}</h1>
+      <main className="container-main">
+        <section className="py-16 pt-28 flex flex-col items-center">
+          <h1
+            className="gradient-text text-4xl md:text-5xl font-semibold text-center"
+            translate="no"
+          >
+            {repository.title}
+          </h1>
 
-          <div className={styles.Description}>
-            <span translate="no">{repository.title}</span>
-            <span>{repository.description}</span>
+          {/* Description */}
+          <div className="max-w-[800px] text-center my-8 text-gray-400">
+            <span className="block text-xl mb-2" translate="no">
+              {repository.title}
+            </span>
+            <span className="text-lg">{repository.description}</span>
           </div>
 
-          <div className={styles.Links}>
+          {/* Links */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
             {repository.homepage && (
-              <Link href={repository.homepage}>
-                <FaGlobeAmericas /> <span translate="no"> Site </span>
+              <Link
+                href={repository.homepage}
+                className="btn btn-outline btn-secondary gap-2"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaGlobeAmericas />
+                <span translate="no">Site</span>
               </Link>
             )}
 
-            <Link href={repository.github}>
-              <AiFillGithub /> <span> Repositório </span>
+            <Link
+              href={repository.github}
+              className="btn btn-outline btn-secondary gap-2"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <AiFillGithub />
+              <span>Repositório</span>
             </Link>
           </div>
 
-          <section className={styles.Languages}>
-            <h2>Linguagens</h2>
-            <ul>
+          {/* Languages */}
+          <section className="w-full mb-8">
+            <h2 className="gradient-text text-2xl font-semibold text-center mb-4">
+              Linguagens
+            </h2>
+            <ul className="flex flex-wrap justify-center gap-2">
               {repository.languages.map((language, index) => (
-                <li key={index}>{language}</li>
+                <li key={index} className="badge badge-outline badge-lg p-4">
+                  {language}
+                </li>
               ))}
             </ul>
           </section>
 
-          <div className={styles.ImageContainer}>
+          {/* Image */}
+          <div className="relative w-full max-w-[300px] sm:max-w-[500px] lg:max-w-[700px] xl:max-w-[1000px] aspect-video">
             <Image
               src={repository.imgPreview}
               alt={`${repository.title} imagem de capa`}
               fill
-              className={styles.Image}
+              className="object-contain"
             />
           </div>
         </section>

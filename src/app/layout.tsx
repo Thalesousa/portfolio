@@ -1,6 +1,6 @@
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "../styles/global.scss";
+import "./globals.css";
 import { Inter } from "next/font/google";
 
 const inter = Inter({
@@ -16,7 +16,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" data-theme="dark">
       <head>
         <link rel="shortcut icon" href="/logo.svg" type="image/svg" />
       </head>

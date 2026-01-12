@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Projects } from "@/components/Projects";
 import { Footer } from "@/components/Footer";
-import styles from "./styles.module.scss";
 import { UseRepositories } from "@/hooks/UseRepositories";
 
 interface Repository {
@@ -26,8 +25,8 @@ export default async function Projetos() {
   return (
     <>
       <Header />
-      <main>
-        <section className={styles.Projects}>
+      <main className="container-main">
+        <section className="py-16 pt-28">
           <Projects repositories={repositories} />
         </section>
       </main>

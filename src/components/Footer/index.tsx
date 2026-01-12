@@ -1,23 +1,13 @@
-import { AiFillLinkedin, AiFillGithub, AiFillCodepenCircle } from 'react-icons/ai'
-import { GrMail } from 'react-icons/gr'
-import styles from './styles.module.scss';
-
 interface FooterProps {
   year: string;
 }
 
 export function Footer({ year }: FooterProps) {
   return (
-    <footer className={styles.Footer}>
-
-      <span>E ai, vamos trabalhar juntos? <span>😃</span></span>
-      <ul>
-        <li><span>&#169;{year} Thales Sousa</span></li>
-        <li><a href="https://www.linkedin.com/in/thalesousa/"><AiFillLinkedin /></a></li>
-        <li><a href="https://github.com/Thalesousa"><AiFillGithub /></a></li>
-        <li><a href="https://codepen.io/thalesousa"><AiFillCodepenCircle /></a></li>
-        <li><a href="mailto:thalestjsb@gmail.com" ><GrMail /></a></li>
-      </ul>
+    <footer className="bg-base-200 py-6">
+      <div className="container-main flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+        <span>&#169; {year} Thales Sousa. Todos os direitos reservados.</span>
+      </div>
     </footer>
-  )
+  );
 }

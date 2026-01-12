@@ -1,25 +1,23 @@
 "use client";
 
 import { useEffect } from "react";
-import styles from "./styles.module.scss";
-
 import Slider from "react-slick";
 import AOS from "aos";
 
-import { FiFigma } from "react-icons/fi";
 import { AiFillHtml5 } from "react-icons/ai";
 import {
   FaCss3Alt,
   FaGitAlt,
-  FaSass,
   FaBootstrap,
   FaGithubAlt,
+  FaPhp,
 } from "react-icons/fa";
 import {
   SiJavascript,
   SiTypescript,
   SiReact,
   SiNextdotjs,
+  SiLaravel,
 } from "react-icons/si";
 
 import "slick-carousel/slick/slick.css";
@@ -65,54 +63,39 @@ export function Skills() {
     ],
   };
 
+  const skills = [
+    { icon: <AiFillHtml5 />, name: "HTML 5" },
+    { icon: <FaCss3Alt />, name: "CSS 3" },
+    { icon: <SiJavascript />, name: "JavaScript" },
+    { icon: <SiReact />, name: "React" },
+    { icon: <FaBootstrap />, name: "Bootstrap" },
+    { icon: <SiTypescript />, name: "TypeScript" },
+    { icon: <SiNextdotjs />, name: "NextJS" },
+    { icon: <FaPhp />, name: "PHP" },
+    { icon: <SiLaravel />, name: "Laravel" },
+    { icon: <FaGitAlt />, name: "Git" },
+    { icon: <FaGithubAlt />, name: "GitHub" },
+  ];
+
   return (
-    <section className={styles.Skills} id="experience" data-aos="fade-up">
-      <h2>Minhas Skills</h2>
+    <section className="mb-28 px-4" id="experience">
+      <h2 className="gradient-text text-4xl md:text-5xl font-semibold text-center my-16">
+        Minhas Skills
+      </h2>
+
       <Slider {...settings}>
-        <div title="HTML 5">
-          <AiFillHtml5 />
-          <span>HTML 5</span>
-        </div>
-        <div title="CSS 3">
-          <FaCss3Alt />
-          <span>CSS 3</span>
-        </div>
-        <div title="JavaScript">
-          <SiJavascript />
-          <span>JavaScript</span>
-        </div>
-        <div title="React">
-          <SiReact />
-          <span>React</span>
-        </div>
-        <div title="Bootstrap">
-          <FaBootstrap />
-          <span>Bootstrap</span>
-        </div>
-        <div title="TypeScript">
-          <SiTypescript />
-          <span>TypeScript</span>
-        </div>
-        <div title="NextJS">
-          <SiNextdotjs />
-          <span>NextJS</span>
-        </div>
-        <div title="Sass">
-          <FaSass />
-          <span>Sass</span>
-        </div>
-        <div title="Git">
-          <FaGitAlt />
-          <span>Git</span>
-        </div>
-        <div title="GitHub">
-          <FaGithubAlt />
-          <span>GitHub</span>
-        </div>
-        <div title="Figma">
-          <FiFigma />
-          <span>Figma</span>
-        </div>
+        {skills.map((skill) => (
+          <div
+            key={skill.name}
+            title={skill.name}
+            className="flex flex-col items-center justify-center text-center px-4"
+          >
+            <div className="text-5xl mb-2 hover:text-secondary transition-colors mx-auto flex justify-center">
+              {skill.icon}
+            </div>
+            <span className="text-sm font-light block">{skill.name}</span>
+          </div>
+        ))}
       </Slider>
     </section>
   );
