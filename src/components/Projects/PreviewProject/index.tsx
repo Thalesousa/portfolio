@@ -13,19 +13,19 @@ interface PreviewProjectProps {
 
 export function PreviewProject({ repository }: PreviewProjectProps) {
   return (
-    <Link href={`/projetos/${repository.name}`}>
-      <div className="card w-[320px] h-[200px] sm:w-[420px] sm:h-[200px] lg:w-[300px] lg:h-[200px] bg-base-100 overflow-hidden group">
+    <Link href={`/projetos/${repository.name}`} className="block">
+      <div className="card w-full aspect-video bg-base-100 overflow-hidden group rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
         <figure className="relative w-full h-full">
           <Image
             src={repository.thumbnail}
-            width={300}
-            height={300}
+            width={400}
+            height={225}
             alt={repository.title}
-            className="object-cover w-full h-full brightness-[0.7] group-hover:brightness-100 transition-all duration-300"
+            className="object-cover w-full h-full brightness-[0.7] group-hover:brightness-100 group-hover:scale-105 transition-all duration-300"
           />
           <div className="absolute inset-0 bg-secondary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
             <h3
-              className="text-2xl font-semibold text-base-content"
+              className="text-xl md:text-2xl font-semibold text-base-content text-center px-4"
               translate="no"
             >
               {repository.title}
