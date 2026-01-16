@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import { BsChevronDown } from "react-icons/bs";
-import { GrMail } from "react-icons/gr";
+import { SiGmail } from "react-icons/si";
 import {
   AiFillLinkedin,
   AiFillGithub,
@@ -102,7 +102,7 @@ export default async function Home() {
                   href="mailto:thalestjsb@gmail.com"
                   className="hover:text-secondary transition-colors"
                 >
-                  <GrMail />
+                  <SiGmail />
                 </a>
               </li>
             </ul>
@@ -161,7 +161,7 @@ export default async function Home() {
               href="mailto:thalestjsb@gmail.com"
               className="btn btn-gradient btn-lg gap-3 mb-12"
             >
-              <GrMail className="text-xl" />
+              <SiGmail className="text-xl" />
               Enviar e-mail
             </a>
 
