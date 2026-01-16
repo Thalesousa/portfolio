@@ -12,6 +12,7 @@ import { Header } from "@/components/Header";
 import { Skills } from "@/components/Skills";
 import { Projects } from "@/components/Projects";
 import { Footer } from "@/components/Footer";
+import { DownloadCvButton } from "@/components/DownloadCvButton";
 import { UseRepositories } from "@/hooks/UseRepositories";
 
 export const metadata: Metadata = {
@@ -55,9 +56,11 @@ export default async function Home() {
               <span className="text-lg font-light block mb-6">
                 Fullstack Developer
               </span>
-              <Link href={`${process.env.NEXT_PUBLIC_LINK_CV_DOWNLOAD}`}>
-                <button className="btn btn-secondary px-8">Download CV</button>
-              </Link>
+              <DownloadCvButton
+                defaultLink={process.env.NEXT_PUBLIC_LINK_CV_DOWNLOAD || ""}
+                pdfLink={process.env.NEXT_PUBLIC_LINK_CV_PDF}
+                docxLink={process.env.NEXT_PUBLIC_LINK_CV_DOCX}
+              />
             </article>
           </div>
 
