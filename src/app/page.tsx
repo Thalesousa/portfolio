@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { Metadata } from "next";
-import { BsChevronDown } from "react-icons/bs";
 import { SiGmail } from "react-icons/si";
 import {
   AiFillLinkedin,
   AiFillGithub,
   AiFillCodepenCircle,
 } from "react-icons/ai";
+import { HiArrowDown } from "react-icons/hi2";
 
 import { Header } from "@/components/Header";
 import { Skills } from "@/components/Skills";
@@ -17,7 +17,7 @@ import { UseRepositories } from "@/hooks/UseRepositories";
 
 export const metadata: Metadata = {
   title: "Home | Thalesousa",
-  description: "Página inicial do portfólio de Thales Sousa.",
+  description: "Pagina inicial do portfolio de Thales Sousa.",
 };
 
 interface Repository {
@@ -44,88 +44,113 @@ export default async function Home() {
       <main className="container-main">
         {/* Hero Section */}
         <section
-          className="min-h-screen flex flex-col justify-center pt-20"
+          className="min-h-screen flex items-center justify-center relative"
           id="home"
         >
           <div className="flex flex-col items-center justify-center text-center">
-            <article>
-              <span className="text-lg font-light">Olá, eu sou</span>
-              <h1 className="text-primary text-4xl md:text-5xl lg:text-7xl font-semibold my-4">
-                Thales Sousa
-              </h1>
-              <span className="text-lg font-light block mb-6">
+            {/* Badge */}
+            <div className="glass-card px-4 py-2 mb-6 animate-fadeIn">
+              <span className="text-sm font-medium text-base-content/80">
                 Fullstack Developer
               </span>
+            </div>
+
+            {/* Main Title */}
+            <h1 className="text-primary text-5xl md:text-6xl lg:text-8xl font-bold mb-6 animate-fadeInUp">
+              Thales Sousa
+            </h1>
+
+            {/* Subtitle */}
+            <p className="text-lg md:text-xl text-base-content/70 max-w-xl mb-8 animate-fadeInUp delay-100">
+              Criando experiencias digitais modernas e performaticas
+            </p>
+
+            {/* Social Links + CTA Button */}
+            <div className="flex flex-wrap items-center justify-center gap-4 mt-8 animate-fadeInUp delay-200">
+              {[
+                { href: "https://www.linkedin.com/in/thalesousa/", icon: <AiFillLinkedin /> },
+                { href: "https://github.com/Thalesousa", icon: <AiFillGithub /> },
+                { href: "https://codepen.io/thalesousa", icon: <AiFillCodepenCircle /> },
+                { href: "mailto:thalestjsb@gmail.com", icon: <SiGmail /> },
+              ].map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  target={social.href.startsWith("mailto") ? undefined : "_blank"}
+                  rel="noreferrer"
+                  className="glass-card-hover p-3 text-2xl text-base-content/70 hover:text-secondary"
+                >
+                  {social.icon}
+                </a>
+              ))}
+
+              <div className="hidden sm:block w-px h-8 bg-base-content/20" />
+
               <DownloadCvButton
                 defaultLink={process.env.NEXT_PUBLIC_LINK_CV_DOWNLOAD || ""}
                 pdfLink={process.env.NEXT_PUBLIC_LINK_CV_PDF}
                 docxLink={process.env.NEXT_PUBLIC_LINK_CV_DOCX}
               />
-            </article>
+            </div>
           </div>
 
-          {/* Social Links */}
-          <div className="flex flex-col items-center mt-12 mb-28">
-            <ul className="flex gap-6 text-2xl md:text-3xl mb-8">
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/thalesousa/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-secondary transition-colors"
-                >
-                  <AiFillLinkedin />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/Thalesousa"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-secondary transition-colors"
-                >
-                  <AiFillGithub />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://codepen.io/thalesousa"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-secondary transition-colors"
-                >
-                  <AiFillCodepenCircle />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:thalestjsb@gmail.com"
-                  className="hover:text-secondary transition-colors"
-                >
-                  <SiGmail />
-                </a>
-              </li>
-            </ul>
-          </div>
-            <span className="text-3xl animate-bounce block ml-auto">
-                <BsChevronDown />
-            </span>
+          {/* Scroll Indicator */}
+          <a
+            href="#about"
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 text-base-content/40 hover:text-secondary transition-colors animate-bounce"
+          >
+            <HiArrowDown className="text-3xl" />
+          </a>
         </section>
 
         {/* About Section */}
-        <section className="flex flex-col items-center py-16" id="about">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 w-full">
-            <div className="max-w-175">
-              <h2 className="text-primary text-5xl md:text-6xl font-semibold mb-6">
-                &lt;&#47;&gt;
+        <section className="py-24" id="about">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Text Content */}
+            <div>
+              <h2 className="text-primary text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                Desenvolvedor Fullstack
               </h2>
-            </div>
-              <p className="text-lg md:text-xl font-light leading-relaxed">
-                Sou um desenvolvedor fullstack dedicado com um olhar atento para
-                detalhes e uma determinação para oferecer a mais alta qualidade.
-                Tenho muito orgulho do meu trabalho e sempre tento melhorar a
-                mim mesmo a cada projeto em que trabalho.
+              <p className="text-lg md:text-xl text-base-content/70 leading-relaxed mb-8">
+                Criando solucoes digitais completas, do frontend ao backend,
+                com foco em performance, escalabilidade e experiencia do usuario.
               </p>
+              <a
+                href="#contact"
+                className="btn btn-secondary btn-lg"
+              >
+                Vamos conversar
+              </a>
+            </div>
+
+            {/* Feature Cards */}
+            <div className="glass-card p-6 md:p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-3 h-3 rounded-full bg-secondary" />
+                <span className="font-medium text-base-content/80">O que eu faco</span>
+              </div>
+
+              <div className="space-y-4">
+                {[
+                  { title: "Frontend Development", desc: "React, Next.js, TypeScript" },
+                  { title: "Backend Development", desc: "Node.js, PHP, Laravel" },
+                  { title: "Database & APIs", desc: "MySQL, REST APIs" },
+                  { title: "UI/UX Implementation", desc: "Design responsivo e acessivel" },
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors">
+                    <div className="mt-1 text-secondary">
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-base-content">{item.title}</h3>
+                      <p className="text-sm text-base-content/60">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -133,65 +158,63 @@ export default async function Home() {
         <Skills />
 
         {/* Projects Preview Section */}
-        <section className="flex flex-col items-center py-16" id="projects">
-            <Projects repositories={latestRepositories} />
+        <section className="py-24" id="projects">
+          <Projects repositories={latestRepositories} />
+          <div className="flex justify-center mt-10">
             <Link
-                href="/projetos"
-                className="mt-8 btn btn-outline btn-secondary"
+              href="/projetos"
+              className="btn btn-outline btn-secondary btn-lg group"
             >
-                Veja mais
+              Ver todos os projetos
+              <span className="ml-2 group-hover:translate-x-1 transition-transform">
+                →
+              </span>
             </Link>
+          </div>
         </section>
 
         {/* Contact Section */}
-        <section className="py-24 flex flex-col items-center" id="contact">
-          <div className="text-center max-w-2xl">
-            <span className="text-primary text-sm uppercase tracking-widest mb-4 block">
+        <section className="py-24" id="contact">
+          <div className="glass-card p-8 md:p-16 text-center max-w-3xl mx-auto">
+            <span className="text-secondary text-sm uppercase tracking-widest mb-4 block font-medium">
               Contato
             </span>
-            <h1 className="text-primary text-4xl md:text-5xl font-semibold mb-6">
+            <h2 className="text-primary text-4xl md:text-5xl font-bold mb-6">
               Vamos trabalhar juntos?
-            </h1>
-            <p className="text-lg text-gray-400 mb-10">
-              Estou disponível para novos projetos e oportunidades. Se você tem uma ideia
-              ou quer bater um papo, será um prazer conversar!
+            </h2>
+            <p className="text-lg text-base-content/70 mb-10 max-w-xl mx-auto">
+              Estou disponivel para novos projetos e oportunidades. Se voce tem uma ideia
+              ou quer bater um papo, sera um prazer conversar!
             </p>
 
             <a
               href="mailto:thalestjsb@gmail.com"
-              className="btn btn-gradient btn-lg gap-3 mb-12"
+              className="btn btn-glow btn-lg gap-3 mb-12"
             >
               <SiGmail className="text-xl" />
               Enviar e-mail
             </a>
 
-            <div className="divider text-gray-500 text-sm">ou me encontre nas redes</div>
+            <div className="divider text-base-content/40 text-sm">
+              ou me encontre nas redes
+            </div>
 
-            <div className="flex justify-center gap-6 mt-8">
-              <a
-                href="https://www.linkedin.com/in/thalesousa/"
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-circle btn-outline btn-secondary btn-lg hover:scale-110 transition-transform"
-              >
-                <AiFillLinkedin className="text-2xl" />
-              </a>
-              <a
-                href="https://github.com/Thalesousa"
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-circle btn-outline btn-secondary btn-lg hover:scale-110 transition-transform"
-              >
-                <AiFillGithub className="text-2xl" />
-              </a>
-              <a
-                href="https://codepen.io/thalesousa"
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-circle btn-outline btn-secondary btn-lg hover:scale-110 transition-transform"
-              >
-                <AiFillCodepenCircle className="text-2xl" />
-              </a>
+            <div className="flex justify-center gap-4 mt-8">
+              {[
+                { href: "https://www.linkedin.com/in/thalesousa/", icon: <AiFillLinkedin /> },
+                { href: "https://github.com/Thalesousa", icon: <AiFillGithub /> },
+                { href: "https://codepen.io/thalesousa", icon: <AiFillCodepenCircle /> },
+              ].map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-circle btn-outline btn-secondary btn-lg hover:scale-110 transition-transform"
+                >
+                  <span className="text-2xl">{social.icon}</span>
+                </a>
+              ))}
             </div>
           </div>
         </section>

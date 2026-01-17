@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @config "../../tailwind.config.js";
  @plugin "daisyui" {
-   themes: halloween --default;
+   themes: night --default;
  }
 
 @layer base {
@@ -30,12 +30,66 @@
   .btn-gradient:hover {
     @apply bg-transparent border-2 border-secondary text-secondary;
   }
+
+  /* Glassmorphism */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+  }
+
+  .glass-card-hover {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    @apply transition-all duration-300;
+  }
+
+  .glass-card-hover:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(74, 222, 128, 0.3);
+    box-shadow: 0 8px 32px rgba(74, 222, 128, 0.1);
+    @apply -translate-y-1;
+  }
+
+  /* Glow Effects */
+  .glow-text {
+    text-shadow: 0 0 20px rgba(74, 222, 128, 0.5);
+  }
+
+  .glow-border {
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+  }
+
+  .btn-glow {
+    @apply bg-gradient-to-r from-blue-400 to-green-400 text-black font-semibold transition-all duration-300;
+  }
+
+  .btn-glow:hover {
+    box-shadow: 0 0 30px rgba(74, 222, 128, 0.5);
+    @apply scale-105;
+  }
 }
 
 @layer utilities {
   .container-main {
     @apply max-w-container mx-auto px-6 md:px-12;
   }
+
+  /* Animation Delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+
+  /* Opacity for stagger animations */
+  .opacity-0-init { opacity: 0; }
 }
 
 

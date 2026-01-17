@@ -13,25 +13,29 @@ interface PreviewProjectProps {
 
 export function PreviewProject({ repository }: PreviewProjectProps) {
   return (
-    <Link href={`/projetos/${repository.name}`} className="block">
-      <div className="card w-full aspect-video bg-base-100 overflow-hidden group rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-        <figure className="relative w-full h-full">
+    <Link href={`/projetos/${repository.name}`} className="block group">
+      <div className="glass-card overflow-hidden transition-all duration-300 group-hover:-translate-y-2 group-hover:border-secondary/30 group-hover:shadow-lg group-hover:shadow-secondary/10">
+        <figure className="relative w-full aspect-video overflow-hidden">
           <Image
             src={repository.thumbnail}
             width={400}
             height={225}
             alt={repository.title}
-            className="object-cover w-full h-full brightness-[0.7] group-hover:brightness-100 group-hover:scale-105 transition-all duration-300"
+            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-secondary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <h3
-              className="text-xl md:text-2xl font-semibold text-base-content text-center px-4"
-              translate="no"
-            >
-              {repository.title}
-            </h3>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
         </figure>
+        <div className="p-4 relative">
+          <h3
+            className="text-lg md:text-xl font-semibold text-base-content group-hover:text-secondary transition-colors duration-300"
+            translate="no"
+          >
+            {repository.title}
+          </h3>
+          <span className="text-sm text-base-content/50 mt-1 block">
+            Ver projeto →
+          </span>
+        </div>
       </div>
     </Link>
   );
