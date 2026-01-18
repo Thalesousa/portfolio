@@ -33,27 +33,31 @@ const skills = [
 ];
 
 export function Skills() {
+  // Duplicar skills para criar efeito infinito
+  const duplicatedSkills = [...skills, ...skills];
+
   return (
     <section className="py-20" id="experience">
       <h2 className="text-primary text-4xl md:text-5xl font-semibold text-center mb-12">
         Minhas Skills
       </h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-        {skills.map((skill, index) => (
-          <div
-            key={skill.name}
-            className="glass-card-hover p-6 flex flex-col items-center justify-center gap-3 group"
-            style={{ animationDelay: `${index * 50}ms` }}
-          >
-            <div className="text-4xl md:text-5xl text-base-content/80 group-hover:text-secondary transition-colors duration-300">
-              {skill.icon}
+      <div className="skills-carousel-container overflow-hidden">
+        <div className="skills-carousel flex gap-4 md:gap-6">
+          {duplicatedSkills.map((skill, index) => (
+            <div
+              key={`${skill.name}-${index}`}
+              className="glass-card p-6 flex flex-col items-center justify-center gap-3 min-w-35 md:min-w-40"
+            >
+              <div className="text-4xl md:text-5xl text-base-content/80">
+                {skill.icon}
+              </div>
+              <span className="text-sm md:text-base font-medium text-base-content/70">
+                {skill.name}
+              </span>
             </div>
-            <span className="text-sm md:text-base font-medium text-base-content/70 group-hover:text-base-content transition-colors duration-300">
-              {skill.name}
-            </span>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

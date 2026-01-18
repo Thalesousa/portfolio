@@ -90,6 +90,30 @@
 
   /* Opacity for stagger animations */
   .opacity-0-init { opacity: 0; }
+
+  /* Skills Infinite Carousel */
+  .skills-carousel-container {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .skills-carousel {
+    animation: scroll-infinite 25s linear infinite;
+    width: max-content;
+  }
+
+  .skills-carousel:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll-infinite {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
 }
 
 

@@ -62,7 +62,7 @@ export default async function Home() {
 
             {/* Subtitle */}
             <p className="text-lg md:text-xl text-base-content/70 max-w-xl mb-8 animate-fadeInUp delay-100">
-              Criando experiencias digitais modernas e performaticas
+              Criando experiências digitais modernas e performáticas
             </p>
 
             {/* Social Links + CTA Button */}
@@ -112,8 +112,7 @@ export default async function Home() {
                 Desenvolvedor Fullstack
               </h2>
               <p className="text-lg md:text-xl text-base-content/70 leading-relaxed mb-8">
-                Criando solucoes digitais completas, do frontend ao backend,
-                com foco em performance, escalabilidade e experiencia do usuario.
+                Criando soluções digitais completas, do front-end ao back-end, com foco em performance, escalabilidade e experiência do usuário.
               </p>
               <a
                 href="#contact"
@@ -127,7 +126,7 @@ export default async function Home() {
             <div className="glass-card p-6 md:p-8">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-3 h-3 rounded-full bg-secondary" />
-                <span className="font-medium text-base-content/80">O que eu faco</span>
+                <span className="font-medium text-base-content/80">O que eu faço</span>
               </div>
 
               <div className="space-y-4">
