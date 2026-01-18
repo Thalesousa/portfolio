@@ -214,12 +214,13 @@ const skillNames = skillsEnv
 const skills = skillNames
   .map((name) => {
     const key = name.toLowerCase();
-    if (allSkills[key]) {
-      return { icon: allSkills[key], name };
+    const icon = allSkills[key];
+    if (icon) {
+      return { icon, name };
     }
     return null;
   })
-  .filter((s): s is { icon: ReactNode; name: string } => s !== null);
+  .filter((s) => s !== null);
 
 export function Skills() {
   // Duplicar skills para criar efeito infinito
