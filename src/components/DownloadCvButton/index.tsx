@@ -13,6 +13,8 @@ export function DownloadCvButton({ defaultLink, pdfLink, docxLink }: DownloadCvB
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
+  const hasOptions = Boolean(pdfLink) || Boolean(docxLink);
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -30,6 +32,20 @@ export function DownloadCvButton({ defaultLink, pdfLink, docxLink }: DownloadCvB
     }
     setIsOpen(false);
   };
+
+  // Se nao tiver opcoes de formato, exibe apenas o botao simples
+  if (!hasOptions) {
+    return (
+      <a
+        href={defaultLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn btn-secondary px-6"
+      >
+        Download CV
+      </a>
+    );
+  }
 
   return (
     <div className="relative inline-flex" ref={dropdownRef}>
