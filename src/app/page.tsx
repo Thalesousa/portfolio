@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 import { SiGmail } from "react-icons/si";
 import {
@@ -112,7 +113,7 @@ export default async function Home() {
                 Desenvolvedor Fullstack
               </h2>
               <p className="text-lg md:text-xl text-base-content/70 leading-relaxed mb-8">
-                Criando soluções digitais completas, do front-end ao back-end, com foco em performance, escalabilidade e experiência do usuário.
+                Criando soluções digitais completas, do front-end ao <br /> back-end, com foco em performance, escalabilidade e experiência do usuário.
               </p>
               <a
                 href="#contact"
@@ -175,6 +176,7 @@ export default async function Home() {
         {/* Contact Section */}
         <section className="py-24" id="contact">
           <div className="glass-card p-8 md:p-16 text-center max-w-3xl mx-auto">
+            
             <span className="text-secondary text-sm uppercase tracking-widest mb-4 block font-medium">
               Contato
             </span>
@@ -193,7 +195,15 @@ export default async function Home() {
               <SiGmail className="text-xl" />
               Enviar e-mail
             </a>
-
+            
+            <Image
+              src="/spaceman.png"
+              alt="Spaceman"
+              width={150}
+              height={150}
+              className="mx-auto mb-6 animate-orbit"
+            />
+                      
             <div className="divider text-base-content/40 text-sm">
               ou me encontre nas redes
             </div>
@@ -209,7 +219,7 @@ export default async function Home() {
                   href={social.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="btn btn-circle btn-outline btn-secondary btn-lg hover:scale-110 transition-transform"
+                  className="btn btn-circle btn-outline btn-secondary btn-lg"
                 >
                   <span className="text-2xl">{social.icon}</span>
                 </a>

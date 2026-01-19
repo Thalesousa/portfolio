@@ -19,8 +19,11 @@
 }
 
 @layer components {
-  .text-primary {
-    @apply bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent;
+  .text-gradient {
+    background: linear-gradient(to left, #1CB5E0, #2D2DA3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .btn-gradient {
@@ -51,8 +54,6 @@
 
   .glass-card-hover:hover {
     background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(74, 222, 128, 0.3);
-    box-shadow: 0 8px 32px rgba(74, 222, 128, 0.1);
     @apply -translate-y-1;
   }
 
@@ -113,6 +114,62 @@
     100% {
       transform: translateX(-50%);
     }
+  }
+
+  @keyframes orbit {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+      transform: translate(10px, -15px) rotate(5deg);
+    }
+    50% {
+      transform: translate(0, -5px) rotate(0deg);
+    }
+    75% {
+      transform: translate(-10px, -15px) rotate(-5deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+  }
+
+  .animate-orbit {
+    animation: orbit 6s ease-in-out infinite;
+  }
+
+  @keyframes meteorite-x {
+    0% {
+      left: -50px;
+    }
+    100% {
+      left: calc(100% - 40px);
+    }
+  }
+
+  @keyframes meteorite-y {
+    0%, 100% {
+      top: 0;
+    }
+    50% {
+      top: calc(100% - 40px);
+    }
+  }
+
+  @keyframes meteorite-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-meteorite {
+    animation:
+      meteorite-x 20s linear infinite alternate,
+      meteorite-y 3s linear infinite,
+      meteorite-spin 2s linear infinite;
   }
 }
 

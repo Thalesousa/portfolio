@@ -14,14 +14,14 @@ interface PreviewProjectProps {
 export function PreviewProject({ repository }: PreviewProjectProps) {
   return (
     <Link href={`/projetos/${repository.name}`} className="block group">
-      <div className="glass-card overflow-hidden transition-all duration-300 group-hover:-translate-y-2 group-hover:border-secondary/30 group-hover:shadow-lg group-hover:shadow-secondary/10">
+      <div className="glass-card overflow-hidden transition-all duration-300 group-hover:border-secondary/30 group-hover:shadow-lg group-hover:shadow-secondary/10">
         <figure className="relative w-full aspect-video overflow-hidden">
           <Image
             src={repository.thumbnail}
             width={400}
             height={225}
             alt={repository.title}
-            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+            className="object-cover w-full h-full"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
         </figure>
