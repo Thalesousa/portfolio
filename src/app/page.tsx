@@ -184,8 +184,7 @@ export default async function Home() {
               Vamos trabalhar juntos?
             </h2>
             <p className="text-lg text-base-content/70 mb-10 max-w-xl mx-auto">
-              Estou disponivel para novos projetos e oportunidades. Se voce tem uma ideia
-              ou quer bater um papo, sera um prazer conversar!
+              Estou disponível para novos projetos e oportunidades. Se tiver uma ideia ou proposta, fico à disposição para conversar.
             </p>
 
             <a

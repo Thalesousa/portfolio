@@ -2,17 +2,27 @@
 
 import { FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LogoSvg from "../Icons/Logo";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > window.innerHeight - 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="bg-base-100/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 w-full">
+    <header className={`bg-base-100/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${isScrolled ? "border-b border-white/20" : ""}`}>
       <div className="navbar container-main">
         <div className="flex-1">
           <Link href="/#home" className="text-white hover:text-secondary transition-colors">
