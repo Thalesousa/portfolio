@@ -62,12 +62,12 @@ export function Experience() {
           </p>
         </div>
 
-        {/* Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        {/* Content Grid - Sticky layout */}
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {/* Timeline */}
-          <div className="relative">
+          <div className="relative order-last lg:order-first">
             {/* Timeline line */}
-            <div className="timeline-line absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-stellar-gold/50 via-cosmic-cyan/30 to-stellar-gold/50" />
+            <div className="timeline-line absolute left-6 md:left-8 top-0 bottom-0 w-px bg-linear-to-b from-stellar-gold/50 via-cosmic-cyan/30 to-stellar-gold/50" />
 
             {/* Experience Items */}
             <div className="space-y-8">
@@ -113,49 +113,51 @@ export function Experience() {
                     </p>
 
                     {/* Bottom accent */}
-                    <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-stellar-gold/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute bottom-0 left-8 right-8 h-px bg-linear-to-r from-transparent via-stellar-gold/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Partners Image Section */}
-          <div className="relative flex items-center justify-center order-first lg:order-last">
-            {/* Glow effects */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-80 h-80 bg-cosmic-purple/20 rounded-full blur-[100px] animate-pulse-glow" />
-            </div>
+          {/* Partners Image Section - Sticky */}
+          <div className="relative order-first lg:order-last lg:sticky lg:top-24 lg:self-start">
+            <div className="flex items-center justify-center h-[400px] lg:h-[500px]">
+              {/* Glow effects */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-80 h-80 bg-cosmic-purple/20 rounded-full blur-[100px] animate-pulse-glow" />
+              </div>
 
-            {/* Orbit rings */}
-            <div className="absolute w-[400px] h-[400px] border border-stellar-gold/10 rounded-full animate-rotate-slow" />
-            <div
-              className="absolute w-[500px] h-[500px] border border-cosmic-cyan/5 rounded-full animate-rotate-slow"
-              style={{ animationDirection: "reverse", animationDuration: "35s" }}
-            />
+              {/* Orbit rings */}
+              <div className="absolute w-80 h-80 lg:w-100 lg:h-100 border border-stellar-gold/10 rounded-full animate-rotate-slow" />
+              <div
+                className="absolute w-96 h-96 lg:w-125 lg:h-125 border border-cosmic-cyan/5 rounded-full animate-rotate-slow"
+                style={{ animationDirection: "reverse", animationDuration: "35s" }}
+              />
 
-            {/* Main image */}
-            <div className="relative z-10">
-              <Image
-                src="/partners.png"
-                alt="Parceiros - Alien e Astronauta"
-                width={400}
-                height={400}
-                className="animate-float-slow drop-shadow-2xl"
-                style={{ filter: "drop-shadow(0 0 40px rgba(139, 92, 246, 0.3))" }}
+              {/* Main image */}
+              <div className="relative z-10">
+                <Image
+                  src="/partners.png"
+                  alt="Parceiros - Alien e Astronauta"
+                  width={350}
+                  height={350}
+                  className="animate-float-slow drop-shadow-2xl w-[280px] h-[280px] lg:w-[350px] lg:h-[350px]"
+                  style={{ filter: "drop-shadow(0 0 40px rgba(139, 92, 246, 0.3))" }}
+                />
+              </div>
+
+              {/* Floating particles */}
+              <div className="absolute top-10 right-10 w-2 h-2 bg-stellar-gold rounded-full animate-twinkle" />
+              <div
+                className="absolute bottom-20 left-10 w-3 h-3 bg-cosmic-cyan rounded-full animate-twinkle"
+                style={{ animationDelay: "1s" }}
+              />
+              <div
+                className="absolute top-1/3 right-5 w-1.5 h-1.5 bg-cosmic-purple rounded-full animate-twinkle"
+                style={{ animationDelay: "2s" }}
               />
             </div>
-
-            {/* Floating particles */}
-            <div className="absolute top-10 right-10 w-2 h-2 bg-stellar-gold rounded-full animate-twinkle" />
-            <div
-              className="absolute bottom-20 left-10 w-3 h-3 bg-cosmic-cyan rounded-full animate-twinkle"
-              style={{ animationDelay: "1s" }}
-            />
-            <div
-              className="absolute top-1/3 right-5 w-1.5 h-1.5 bg-cosmic-purple rounded-full animate-twinkle"
-              style={{ animationDelay: "2s" }}
-            />
           </div>
         </div>
       </div>

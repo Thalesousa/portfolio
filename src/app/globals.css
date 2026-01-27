@@ -124,6 +124,10 @@
       0 0 0 1px rgba(251, 191, 36, 0.3);
   }
 
+  .btn-cosmic.no-lift:hover {
+    transform: none;
+  }
+
   .btn-cosmic:hover::before {
     opacity: 1;
   }

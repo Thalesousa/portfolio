@@ -40,7 +40,7 @@ export function DownloadCvButton({ defaultLink, pdfLink, docxLink }: DownloadCvB
         href={defaultLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="btn-cosmic inline-flex items-center gap-2"
+        className="btn-cosmic no-lift inline-flex items-center gap-2"
       >
         <HiDownload className="text-lg relative z-10" />
         <span className="relative z-10">Download CV</span>
@@ -54,7 +54,7 @@ export function DownloadCvButton({ defaultLink, pdfLink, docxLink }: DownloadCvB
         href={defaultLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="btn-cosmic inline-flex items-center gap-2 rounded-r-none border-r border-r-space-dark/30"
+        className="btn-cosmic no-lift inline-flex items-center gap-2 rounded-r-none border-r border-r-space-dark/30"
       >
         <HiDownload className="text-lg relative z-10" />
         <span className="relative z-10">Download CV</span>
