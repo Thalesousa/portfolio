@@ -15,6 +15,7 @@ import { Experience } from "@/components/Experience";
 import { Projects } from "@/components/Projects";
 import { Footer } from "@/components/Footer";
 import { DownloadCvButton } from "@/components/DownloadCvButton";
+import { EmailButton } from "@/components/EmailButton";
 import { UseRepositories } from "@/hooks/UseRepositories";
 
 export const metadata: Metadata = {
@@ -258,13 +259,9 @@ export default async function Home() {
                 Estou disponivel para novos projetos e oportunidades. Se tiver uma ideia ou proposta, fico a disposicao para conversar.
               </p>
 
-              <a
-                href="mailto:thalestjsb@gmail.com"
-                className="btn-cosmic inline-flex items-center gap-3 text-lg mb-16"
-              >
-                <SiGmail className="text-xl relative z-10" />
-                <span className="relative z-10">Enviar e-mail</span>
-              </a>
+              <div className="mb-16">
+                <EmailButton email="thalestjsb@gmail.com" />
+              </div>
 
               {/* Spaceman with enhanced effects */}
               <div className="relative w-52 h-52 mx-auto mb-14">
