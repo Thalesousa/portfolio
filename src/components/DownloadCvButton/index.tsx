@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { BsChevronDown, BsFileEarmarkPdf, BsFileEarmarkWord } from "react-icons/bs";
+import { HiDownload } from "react-icons/hi";
 
 interface DownloadCvButtonProps {
   defaultLink: string;
@@ -33,16 +34,16 @@ export function DownloadCvButton({ defaultLink, pdfLink, docxLink }: DownloadCvB
     setIsOpen(false);
   };
 
-  // Se nao tiver opcoes de formato, exibe apenas o botao simples
   if (!hasOptions) {
     return (
       <a
         href={defaultLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="btn btn-secondary px-6"
+        className="btn-cosmic inline-flex items-center gap-2"
       >
-        Download CV
+        <HiDownload className="text-lg relative z-10" />
+        <span className="relative z-10">Download CV</span>
       </a>
     );
   }
@@ -53,44 +54,59 @@ export function DownloadCvButton({ defaultLink, pdfLink, docxLink }: DownloadCvB
         href={defaultLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="btn btn-secondary px-6 rounded-r-none border-r-0"
+        className="btn-cosmic inline-flex items-center gap-2 rounded-r-none border-r border-r-space-dark/30"
       >
-        Download CV
+        <HiDownload className="text-lg relative z-10" />
+        <span className="relative z-10">Download CV</span>
       </a>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="btn btn-secondary px-3 rounded-l-none border-l border-l-base-content/20"
+        className="px-4 rounded-r-full transition-all duration-300"
+        style={{
+          background: "linear-gradient(135deg, var(--stellar-gold), var(--stellar-amber))",
+        }}
         aria-label="Escolher formato"
       >
-        <BsChevronDown className={`transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
+        <BsChevronDown
+          className={`text-space-dark transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+        />
       </button>
 
-      {isOpen && (
-        <ul className="absolute top-full right-0 mt-2 w-32 bg-base-100 rounded-lg shadow-lg border border-base-300 overflow-hidden z-50">
-          {pdfLink && (
-            <li>
+      {/* Dropdown Menu */}
+      <div
+        className={`absolute top-full right-0 mt-3 w-44 transition-all duration-300 origin-top-right ${
+          isOpen
+            ? "opacity-100 scale-100 translate-y-0"
+            : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
+        }`}
+      >
+        <div className="celestial-card overflow-hidden shadow-cosmic-lg">
+          <div className="p-1">
+            {pdfLink && (
               <button
                 onClick={() => handleDownload(pdfLink)}
-                className="w-full px-4 py-3 text-left hover:bg-secondary/20 transition-colors flex items-center gap-3"
+                className="w-full px-4 py-3 text-left hover:bg-stellar-gold/10 transition-all duration-300 flex items-center gap-3 group rounded-xl"
               >
-                <BsFileEarmarkPdf className="text-red-500 text-lg" />
-                <span className="font-medium">PDF</span>
+                <BsFileEarmarkPdf className="text-red-400 text-lg group-hover:scale-110 transition-transform" />
+                <span className="font-syne font-medium text-stardust group-hover:text-stellar-gold transition-colors">
+                  PDF
+                </span>
               </button>
-            </li>
-          )}
-          {docxLink && (
-            <li>
+            )}
+            {docxLink && (
               <button
                 onClick={() => handleDownload(docxLink)}
-                className={`w-full px-4 py-3 text-left hover:bg-secondary/20 transition-colors flex items-center gap-3 ${pdfLink ? "border-t border-base-300" : ""}`}
+                className="w-full px-4 py-3 text-left hover:bg-stellar-gold/10 transition-all duration-300 flex items-center gap-3 group rounded-xl"
               >
-                <BsFileEarmarkWord className="text-blue-500 text-lg" />
-                <span className="font-medium">DOCX</span>
+                <BsFileEarmarkWord className="text-blue-400 text-lg group-hover:scale-110 transition-transform" />
+                <span className="font-syne font-medium text-stardust group-hover:text-stellar-gold transition-colors">
+                  DOCX
+                </span>
               </button>
-            </li>
-          )}
-        </ul>
-      )}
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -74,9 +74,7 @@ import {
 } from "react-icons/si";
 import { DiRuby } from "react-icons/di";
 
-// Mapa de todas as skills disponiveis
 const allSkills: Record<string, ReactNode> = {
-  // Linguagens
   "html": <AiFillHtml5 />,
   "css": <FaCss3Alt />,
   "javascript": <SiJavascript />,
@@ -89,8 +87,6 @@ const allSkills: Record<string, ReactNode> = {
   "kotlin": <SiKotlin />,
   "swift": <SiSwift />,
   "ruby": <DiRuby />,
-
-  // Frontend Frameworks
   "react": <FaReact />,
   "nextjs": <SiNextdotjs />,
   "next": <SiNextdotjs />,
@@ -98,21 +94,13 @@ const allSkills: Record<string, ReactNode> = {
   "vuejs": <FaVuejs />,
   "angular": <FaAngular />,
   "svelte": <SiSvelte />,
-
-  // Mobile
   "flutter": <SiFlutter />,
-
-  // Desktop
   "electron": <SiElectron />,
-
-  // CSS/Styling
   "sass": <FaSass />,
   "scss": <FaSass />,
   "tailwind": <SiTailwindcss />,
   "tailwindcss": <SiTailwindcss />,
   "bootstrap": <FaBootstrap />,
-
-  // Backend Frameworks
   "node": <FaNodeJs />,
   "nodejs": <FaNodeJs />,
   "express": <SiExpress />,
@@ -123,8 +111,6 @@ const allSkills: Record<string, ReactNode> = {
   "spring": <SiSpring />,
   "dotnet": <SiDotnet />,
   ".net": <SiDotnet />,
-
-  // Databases
   "mysql": <SiMysql />,
   "postgresql": <SiPostgresql />,
   "postgres": <SiPostgresql />,
@@ -132,25 +118,15 @@ const allSkills: Record<string, ReactNode> = {
   "mongo": <SiMongodb />,
   "redis": <SiRedis />,
   "firebase": <SiFirebase />,
-
-  // APIs
   "graphql": <SiGraphql />,
   "rest": <SiPostman />,
-
-  // Build Tools
   "vite": <SiVite />,
   "webpack": <SiWebpack />,
-
-  // Package Managers
   "npm": <FaNpm />,
   "yarn": <FaYarn />,
-
-  // Version Control
   "git": <FaGitAlt />,
   "github": <FaGithubAlt />,
   "gitlab": <SiGitlab />,
-
-  // Cloud/DevOps
   "aws": <FaAws />,
   "gcp": <SiGooglecloud />,
   "googlecloud": <SiGooglecloud />,
@@ -162,55 +138,31 @@ const allSkills: Record<string, ReactNode> = {
   "kubernetes": <SiKubernetes />,
   "k8s": <SiKubernetes />,
   "nginx": <SiNginx />,
-
-  // OS
   "linux": <FaLinux />,
-
-  // Testing
   "jest": <SiJest />,
   "cypress": <SiCypress />,
   "storybook": <SiStorybook />,
-
-  // Linting/Formatting
   "eslint": <SiEslint />,
   "prettier": <SiPrettier />,
-
-  // API Tools
   "postman": <SiPostman />,
-
-  // State Management
   "redux": <SiRedux />,
-
-  // Payments
   "stripe": <SiStripe />,
-
-  // 3D/Graphics
   "unity": <SiUnity />,
   "blender": <SiBlender />,
-
-  // Design Tools
   "figma": <FaFigma />,
-
-  // CMS
   "wordpress": <SiWordpress />,
   "shopify": <SiShopify />,
-
-  // Documentation
   "markdown": <SiMarkdown />,
-
-  // IoT
   "arduino": <SiArduino />,
   "raspberrypi": <SiRaspberrypi />,
 };
 
-// Ler skills da variavel de ambiente
 const skillsEnv = process.env.NEXT_PUBLIC_FEATURED_SKILLS || "";
 const skillNames = skillsEnv
   .split(",")
   .map((s) => s.trim())
   .filter(Boolean);
 
-// Filtrar apenas as skills definidas no .env
 const skills = skillNames
   .map((name) => {
     const key = name.toLowerCase();
@@ -223,32 +175,49 @@ const skills = skillNames
   .filter((s) => s !== null);
 
 export function Skills() {
-  // Duplicar skills para criar efeito infinito
   const duplicatedSkills = [...skills, ...skills];
 
   return (
-    <section className="py-20" id="experience">
-      <h2 className="text-primary text-4xl md:text-5xl font-semibold text-center mb-12">
-        Minhas Skills
-      </h2>
+    <div className="relative">
+      {/* Decorative elements */}
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-40 h-72 bg-gradient-to-r from-stellar-gold/8 to-transparent blur-[80px] pointer-events-none" />
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-40 h-72 bg-gradient-to-l from-cosmic-cyan/8 to-transparent blur-[80px] pointer-events-none" />
 
-      <div className="skills-carousel-container overflow-hidden">
-        <div className="skills-carousel flex gap-4 md:gap-6">
+      <div className="skills-carousel-container overflow-hidden py-10">
+        <div className="skills-carousel flex gap-6 md:gap-8">
           {duplicatedSkills.map((skill, index) => (
             <div
               key={`${skill.name}-${index}`}
-              className="glass-card p-6 flex flex-col items-center justify-center gap-3 min-w-35 md:min-w-40"
+              className="group relative flex flex-col items-center justify-center min-w-[130px] md:min-w-[150px]"
             >
-              <div className="text-4xl md:text-5xl text-base-content/80">
-                {skill.icon}
+              {/* Card background with celestial styling */}
+              <div className="absolute inset-0 bg-space-deep/70 backdrop-blur-md border border-stellar-gold/5 rounded-2xl transition-all duration-500 group-hover:border-stellar-gold/20 group-hover:bg-space-deep/90" />
+
+              {/* Glow effect */}
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-b from-stellar-gold/10 to-transparent" />
+
+              <div className="relative z-10 p-7 flex flex-col items-center justify-center gap-4">
+                {/* Icon with glow */}
+                <div className="relative">
+                  <div className="text-4xl md:text-5xl text-stardust/60 group-hover:text-stellar-gold transition-colors duration-500">
+                    {skill.icon}
+                  </div>
+                  {/* Icon glow on hover */}
+                  <div className="absolute inset-0 blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 bg-stellar-gold" />
+                </div>
+
+                {/* Name */}
+                <span className="text-xs md:text-sm font-medium font-syne text-stardust/40 group-hover:text-stardust/70 transition-colors duration-500 tracking-wide">
+                  {skill.name}
+                </span>
               </div>
-              <span className="text-sm md:text-base font-medium text-base-content/70">
-                {skill.name}
-              </span>
+
+              {/* Bottom accent line */}
+              <div className="absolute bottom-0 left-5 right-5 h-px bg-gradient-to-r from-transparent via-stellar-gold/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
