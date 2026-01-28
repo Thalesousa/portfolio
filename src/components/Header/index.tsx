@@ -93,8 +93,8 @@ export function Header() {
 
         {/* Close Button */}
         <button
-          className="absolute top-4 right-6 p-3 rounded-xl text-stardust hover:text-cosmic-cyan transition-all duration-300 hover:bg-cosmic-blue/10 z-10"
-          onClick={toggleMenu}
+          className="absolute top-4 right-6 p-3 rounded-xl text-stardust hover:text-cosmic-cyan transition-all duration-300 hover:bg-cosmic-blue/10 z-20"
+          onClick={closeMenu}
           aria-label="Close menu"
         >
           <FaTimes className="text-2xl" />
