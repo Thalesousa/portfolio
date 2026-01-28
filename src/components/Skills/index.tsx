@@ -1,5 +1,3 @@
-"use client";
-
 import { ReactNode } from "react";
 import { AiFillHtml5 } from "react-icons/ai";
 import {
@@ -175,49 +173,21 @@ const skills = skillNames
   .filter((s) => s !== null);
 
 export function Skills() {
-  const duplicatedSkills = [...skills, ...skills];
-
   return (
-    <div className="relative">
-      {/* Decorative elements */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-40 h-72 bg-gradient-to-r from-stellar-gold/8 to-transparent blur-[80px] pointer-events-none" />
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-40 h-72 bg-gradient-to-l from-cosmic-cyan/8 to-transparent blur-[80px] pointer-events-none" />
-
-      <div className="skills-carousel-container overflow-hidden py-10">
-        <div className="skills-carousel flex gap-6 md:gap-8">
-          {duplicatedSkills.map((skill, index) => (
-            <div
-              key={`${skill.name}-${index}`}
-              className="group relative flex flex-col items-center justify-center min-w-[130px] md:min-w-[150px]"
-            >
-              {/* Card background with celestial styling */}
-              <div className="absolute inset-0 bg-space-deep/70 backdrop-blur-md border border-stellar-gold/5 rounded-2xl transition-all duration-500 group-hover:border-stellar-gold/20 group-hover:bg-space-deep/90" />
-
-              {/* Glow effect */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-b from-stellar-gold/10 to-transparent" />
-
-              <div className="relative z-10 p-7 flex flex-col items-center justify-center gap-4">
-                {/* Icon with glow */}
-                <div className="relative">
-                  <div className="text-4xl md:text-5xl text-stardust/60 group-hover:text-stellar-gold transition-colors duration-500">
-                    {skill.icon}
-                  </div>
-                  {/* Icon glow on hover */}
-                  <div className="absolute inset-0 blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 bg-stellar-gold" />
-                </div>
-
-                {/* Name */}
-                <span className="text-xs md:text-sm font-medium font-syne text-stardust/40 group-hover:text-stardust/70 transition-colors duration-500 tracking-wide">
-                  {skill.name}
-                </span>
-              </div>
-
-              {/* Bottom accent line */}
-              <div className="absolute bottom-0 left-5 right-5 h-px bg-gradient-to-r from-transparent via-stellar-gold/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
-          ))}
+    <div className="flex flex-wrap gap-3">
+      {skills.map((skill) => (
+        <div
+          key={skill.name}
+          className="group flex items-center gap-2.5 px-5 py-2.5 bg-space-deep/80 border border-stardust/10 rounded-full transition-all duration-300 hover:border-stardust/25 hover:bg-space-deep"
+        >
+          <span className="text-lg text-stardust/70 group-hover:text-stardust transition-colors duration-300">
+            {skill.icon}
+          </span>
+          <span className="text-base font-medium text-stardust/80 group-hover:text-stardust transition-colors duration-300">
+            {skill.name}
+          </span>
         </div>
-      </div>
+      ))}
     </div>
   );
 }
