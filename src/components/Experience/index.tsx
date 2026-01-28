@@ -43,12 +43,12 @@ const experiences: ExperienceItem[] = [
 
 export function Experience() {
   return (
-    <section className="py-32 relative" id="experience-timeline">
+    <section className="py-32 relative overflow-hidden" id="experience-timeline">
       <div className="section-divider mb-24" />
 
-      {/* Background decorative elements */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-cosmic-purple/8 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-stellar-gold/8 rounded-full blur-[100px] pointer-events-none" />
+      {/* Background decorative elements - hidden on mobile */}
+      <div className="hidden md:block absolute top-1/4 left-0 w-96 h-96 bg-cosmic-purple/8 rounded-full blur-[120px] pointer-events-none" />
+      <div className="hidden md:block absolute bottom-1/4 right-0 w-80 h-80 bg-stellar-gold/8 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative z-10">
         {/* Header */}
@@ -121,17 +121,17 @@ export function Experience() {
           </div>
 
           {/* Partners Image Section - Sticky */}
-          <div className="relative order-first lg:order-last lg:sticky lg:top-24 lg:self-start">
-            <div className="flex items-center justify-center h-[400px] lg:h-[500px]">
-              {/* Glow effects */}
-              <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative order-first lg:order-last lg:sticky lg:top-24 lg:self-start overflow-hidden">
+            <div className="flex items-center justify-center h-[300px] md:h-[400px] lg:h-[500px]">
+              {/* Glow effects - hidden on mobile */}
+              <div className="hidden md:flex absolute inset-0 items-center justify-center">
                 <div className="w-80 h-80 bg-cosmic-purple/20 rounded-full blur-[100px] animate-pulse-glow" />
               </div>
 
-              {/* Orbit rings */}
-              <div className="absolute w-80 h-80 lg:w-100 lg:h-100 border border-stellar-gold/10 rounded-full animate-rotate-slow" />
+              {/* Orbit rings - hidden on mobile */}
+              <div className="hidden md:block absolute w-80 h-80 lg:w-100 lg:h-100 border border-stellar-gold/10 rounded-full animate-rotate-slow" />
               <div
-                className="absolute w-96 h-96 lg:w-125 lg:h-125 border border-cosmic-cyan/5 rounded-full animate-rotate-slow"
+                className="hidden md:block absolute w-96 h-96 lg:w-125 lg:h-125 border border-cosmic-cyan/5 rounded-full animate-rotate-slow"
                 style={{ animationDirection: "reverse", animationDuration: "35s" }}
               />
 

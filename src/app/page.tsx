@@ -242,12 +242,12 @@ export default async function Home() {
         </section>
 
         {/* Contact Section */}
-        <section className="py-32 relative" id="contact">
+        <section className="py-32 relative overflow-hidden" id="contact">
           <div className="section-divider mb-24" />
 
-          {/* Background decorative elements */}
-          <div className="absolute top-1/2 left-1/4 w-80 h-80 bg-cosmic-purple/8 rounded-full blur-[100px]" />
-          <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-stellar-gold/8 rounded-full blur-[100px]" />
+          {/* Background decorative elements - hidden on mobile */}
+          <div className="hidden md:block absolute top-1/2 left-1/4 w-80 h-80 bg-cosmic-purple/8 rounded-full blur-[100px]" />
+          <div className="hidden md:block absolute bottom-1/4 right-1/4 w-72 h-72 bg-stellar-gold/8 rounded-full blur-[100px]" />
 
           <div className="celestial-card p-10 md:p-20 text-center max-w-4xl mx-auto relative overflow-hidden">
             <div className="relative z-10">
@@ -267,13 +267,13 @@ export default async function Home() {
               </div>
 
               {/* Spaceman with enhanced effects */}
-              <div className="relative w-52 h-52 mx-auto mb-14">
+              <div className="relative w-52 h-52 mx-auto mb-14 overflow-visible">
                 {/* Glow ring */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-stellar-gold/20 via-cosmic-purple/20 to-stellar-gold/20 blur-3xl animate-pulse-glow" />
+                <div className="absolute inset-0 rounded-full bg-linear-to-r from-stellar-gold/20 via-cosmic-purple/20 to-stellar-gold/20 blur-3xl animate-pulse-glow" />
 
-                {/* Orbit ring */}
-                <div className="absolute inset-[-20px] rounded-full border border-stellar-gold/10 animate-rotate-slow" />
-                <div className="absolute inset-[-45px] rounded-full border border-cosmic-cyan/5 animate-rotate-slow" style={{ animationDirection: "reverse", animationDuration: "35s" }} />
+                {/* Orbit ring - hidden on mobile */}
+                <div className="hidden md:block absolute -inset-5 rounded-full border border-stellar-gold/10 animate-rotate-slow" />
+                <div className="hidden md:block absolute -inset-11 rounded-full border border-cosmic-cyan/5 animate-rotate-slow" style={{ animationDirection: "reverse", animationDuration: "35s" }} />
 
                 <Image
                   src="/spaceman.png"

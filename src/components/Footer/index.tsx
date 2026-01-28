@@ -73,9 +73,9 @@ export function Footer({ year }: FooterProps) {
         aria-hidden="true"
       />
 
-      {/* Decorative glow */}
-      <div className="absolute bottom-0 left-1/4 w-96 h-40 bg-stellar-gold/5 blur-[100px]" />
-      <div className="absolute bottom-0 right-1/4 w-64 h-32 bg-cosmic-cyan/5 blur-[100px]" />
+      {/* Decorative glow - hidden on mobile */}
+      <div className="hidden md:block absolute bottom-0 left-1/4 w-96 h-40 bg-stellar-gold/5 blur-[100px]" />
+      <div className="hidden md:block absolute bottom-0 right-1/4 w-64 h-32 bg-cosmic-cyan/5 blur-[100px]" />
 
       <div className="container-main relative z-10">
         {/* Top section with divider */}
@@ -111,8 +111,8 @@ export function Footer({ year }: FooterProps) {
           </p>
         </div>
 
-        {/* Background logo watermark */}
-        <div className="absolute -bottom-16 -right-16 opacity-[0.015] pointer-events-none">
+        {/* Background logo watermark - hidden on mobile */}
+        <div className="hidden md:block absolute -bottom-16 -right-16 opacity-[0.015] pointer-events-none">
           <LogoSvg
             width={350}
             height={260}

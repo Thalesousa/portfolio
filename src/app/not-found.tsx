@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <main className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden navigator-grid">
-      {/* Background decorative elements */}
-      <div className="absolute top-1/4 -left-32 w-80 h-80 bg-cosmic-purple/15 rounded-full blur-[100px]" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-stellar-gold/10 rounded-full blur-[120px]" />
+      {/* Background decorative elements - hidden on mobile */}
+      <div className="hidden md:block absolute top-1/4 -left-32 w-80 h-80 bg-cosmic-purple/15 rounded-full blur-[100px]" />
+      <div className="hidden md:block absolute bottom-1/4 -right-32 w-96 h-96 bg-stellar-gold/10 rounded-full blur-[120px]" />
 
       <div className="celestial-card p-10 md:p-20 text-center max-w-xl relative overflow-hidden">
         <div className="relative z-10">
@@ -27,10 +27,10 @@ export default function NotFound() {
               <div className="w-36 h-36 rounded-full border border-cosmic-cyan/30 animate-ping" style={{ animationDuration: "2s", animationDelay: "0.5s" }} />
             </div>
 
-            {/* Orbit rings */}
-            <div className="absolute inset-[-10px] rounded-full border border-dashed border-stellar-gold/15 animate-rotate-slow" />
+            {/* Orbit rings - hidden on mobile */}
+            <div className="hidden md:block absolute -inset-2.5 rounded-full border border-dashed border-stellar-gold/15 animate-rotate-slow" />
             <div
-              className="absolute inset-[-30px] rounded-full border border-cosmic-cyan/10 animate-rotate-slow"
+              className="hidden md:block absolute -inset-7.5 rounded-full border border-cosmic-cyan/10 animate-rotate-slow"
               style={{ animationDirection: "reverse", animationDuration: "30s" }}
             />
 
