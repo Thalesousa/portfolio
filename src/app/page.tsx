@@ -122,9 +122,12 @@ export default async function Home() {
             <span className="text-xs font-syne tracking-[0.3em] uppercase opacity-0 group-hover:opacity-100 transition-opacity">
               Explorar
             </span>
-            <div className="w-6 h-10 rounded-full border-2 border-current flex justify-center pt-2">
+            {/* Mouse - desktop only */}
+            <div className="hidden md:flex w-6 h-10 rounded-full border-2 border-current justify-center pt-2">
               <div className="w-1 h-2 bg-current rounded-full animate-bounce" />
             </div>
+            {/* Arrow - mobile only */}
+            <HiArrowDown className="md:hidden text-2xl animate-bounce" />
           </a>
         </section>
 
